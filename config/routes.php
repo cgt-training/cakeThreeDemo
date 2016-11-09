@@ -49,7 +49,11 @@ Router::scope('/', function (RouteBuilder $routes) {
      * its action called 'display', and we pass a param to select the view file
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
+<<<<<<< HEAD
     $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
+=======
+    $routes->connect('/', ['controller' => 'Articles', 'action' => 'index', 'home']);
+>>>>>>> bc26db3a74fc8263c3d2ebcb008b5b787c42468a
 
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
@@ -74,6 +78,7 @@ Router::scope('/', function (RouteBuilder $routes) {
      */
     $routes->fallbacks(DashedRoute::class);
 });
+<<<<<<< HEAD
 //**** Admin Routes ************//
  Router::prefix('Admin', function ($routes) {
     // Because you are in the admin scope,
@@ -84,6 +89,8 @@ Router::scope('/', function (RouteBuilder $routes) {
 
      $routes->fallbacks(InflectedRoute::class);
 });
+=======
+>>>>>>> bc26db3a74fc8263c3d2ebcb008b5b787c42468a
 
 /**
  * Load all plugin routes.  See the Plugin documentation on
