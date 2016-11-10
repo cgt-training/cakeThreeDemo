@@ -5,7 +5,7 @@
  </head>
 <body>
 <?php echo $this->element('main_header');?>
-        <div class="container-fluid">
+        <div class="container-fluid" >
             <div class="row-fluid">
                 <div class="span3" id="sidebar">
                 <?php echo $this->element('main_sidebar');?>
@@ -16,11 +16,12 @@
                 <?=$this->fetch('content');?>
                 </div>
             </div>
+         </div> 
             <hr>
-            <footer>
-                <p class="text-center">&copy; Technosoft 2016</p>
-            </footer>
-        </div>        
+        <footer class="container-fluid" style="position: fixed;bottom: 0;text-align: center;">
+            <p>&copy; Technosoft 2016</p>
+        </footer>
+              
     </body>
 
 </html>

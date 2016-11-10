@@ -10,6 +10,8 @@
             'vendor/bootstrap-datepicker.js',
             'bootstrap.min.js',
             'jquery.dataTables.min.js',
+            'jquery.validate.min.js',
+            'form-validation.js',
             'scripts.js',
             'DT_bootstrap.js']);
     
@@ -21,7 +23,9 @@
         <![endif]-->  
 
             <script>
-
+jQuery(document).ready(function() {   
+       FormValidation.init();
+    });
         $(function() {
             $(".datepicker").datepicker();
             $(".uniform_on").uniform();

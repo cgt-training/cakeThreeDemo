@@ -84,7 +84,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     // Because you are in the admin scope,
     // you do not need to include the /admin prefix
     // or the admin route element.
-    $routes->connect('/', ['controller' => 'BlogPosts', 'action' => 'index']);
+    $routes->connect('/', ['controller' => 'users', 'action' => 'login']);
      $routes->connect('/BlogPosts/:action', ['controller' => 'BlogPosts','action'=>'index']);
 
      $routes->fallbacks(InflectedRoute::class);
