@@ -43,7 +43,7 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
-<<<<<<< HEAD
+
          if(isset($this->request->prefix) && ($this->request->prefix == 'admin')){
    
         $this->loadComponent('Auth', [   
@@ -76,40 +76,7 @@ class AppController extends Controller
         ]);
         }
         else {
-            $this->loadComponent('Auth', [ 
-
-            'authorize' => 'Controller',
-
-            'loginRedirect' => [
-            'controller' => 'Posts',
-            'action' => 'index',
-            // 'prefix' => 'admin',
-            'prefix' => false,
-            ],
-
-            'logoutRedirect' => [
-            'controller' => 'Posts',
-            'action' => 'index',
-            'prefix' => false,
-                
-
-            ],
-
-            'authenticate' => [
-                'Form' => [
-                    'fields' => ['username' => 'username', 'password' => 'password']
-                ]
-
-            ],
-            'authorize' => ['Controller'],
-
-            
-        ]);
-
-        }
-=======
-
-        $this->loadComponent('Auth', [
+              $this->loadComponent('Auth', [
                     'loginRedirect' => [
                         'controller' => 'Articles',
                         'action' => 'index'
@@ -125,8 +92,8 @@ class AppController extends Controller
                     ]
                 ]
             ]);
-      
->>>>>>> bc26db3a74fc8263c3d2ebcb008b5b787c42468a
+        }
+
     }
 
     /**
@@ -135,26 +102,30 @@ class AppController extends Controller
      * @param \Cake\Event\Event $event The beforeRender event.
      * @return \Cake\Network\Response|null|void
      */
-<<<<<<< HEAD
+
     public function beforeFilter(Event $event)
     {
         //pr($this->request);
-        //// if(empty($this->request->prefix) && ($this->request->prefix !== 'admin'))
-        // {
-             $this->Auth->allow(); 
+         if(empty($this->request->prefix) && ($this->request->prefix !== 'admin')) {
+
+            $this->Auth->allow(); 
            // $this->Auth->deny(); 
-         //}
+         }
+         else{
+
+            $this->Auth->allow('index','view');       
+         }
        
     }
-=======
-
-    public function beforeFilter(Event $event)
-    {
-        $this->Auth->allow('index','view');
-    }
 
 
->>>>>>> bc26db3a74fc8263c3d2ebcb008b5b787c42468a
+    // public function beforeFilter(Event $event)
+    // {
+    //     $this->Auth->allow('index','view');
+    // }
+
+
+
     public function beforeRender(Event $event)
     {
         if (!array_key_exists('_serialize', $this->viewVars) &&

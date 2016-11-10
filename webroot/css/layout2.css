@@ -10,11 +10,25 @@ body{
 	position: relative;	
 }
 
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+th, td {
+    border: none;
+    text-align: left;
+    padding: 20	px;
+    width: 50px;
+}
+
+
 .navbar
 {
 	margin-bottom:0px !important;
 }
-
 .navbar-default
 {
 	background-color: #ffffff;
