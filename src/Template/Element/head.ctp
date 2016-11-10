@@ -9,7 +9,7 @@
   	
   	 echo $this->Html->script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js');
   	
-  	 echo $this->Html->script('text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/smalot-bootstrap-datetimepicker/2.3.11/js/bootstrap-datetimepicker.min.js');
+  	 echo $this->Html->script('https://cdnjs.cloudflare.com/ajax/libs/smalot-bootstrap-datetimepicker/2.3.11/js/bootstrap-datetimepicker.min.js');
 
 
 
@@ -17,8 +17,9 @@
     echo $this->Html->css('layout1.css');
 
     echo $this->Html->css('layout2.css');
-	 echo $this->Html->css('https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/css/bootstrap-datetimepicker.css');
-    echo $this->Html->css('bootstrap.min.css');
+	 echo $this->Html->css('https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/css/bootstrap-datetimepicker.css');   
+    echo $this->Html->css('frontbootstrap.min.css');
+         echo $this->Html->script('jquery-2.2.3.min.js');
         echo $this->Html->css('base.css');
         echo $this->Html->css('cake.css');
 ?>
