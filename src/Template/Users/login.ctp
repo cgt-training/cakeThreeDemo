@@ -5,7 +5,7 @@
     	<div class="col-md-6 col-md-push-3">
     		    	
     		        <h1 align="center"><?= __('Login') ?></h1>
-    		        <div class="form-group">
+    		        <div class="">
     		        <?= $this->Form->input('username',['class'=>'form-control']); ?>
     		        </div>
     		        <div class="form-group">

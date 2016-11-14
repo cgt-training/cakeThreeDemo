@@ -76,7 +76,7 @@ class AppController extends Controller
         ]);
         }
         else {
-              $this->loadComponent('Auth', [
+            $this->loadComponent('Auth', [
                     'loginRedirect' => [
                         'controller' => 'Articles',
                         'action' => 'index'
@@ -92,8 +92,8 @@ class AppController extends Controller
                     ]
                 ]
             ]);
-        }
 
+        }
     }
 
     /**
@@ -106,25 +106,17 @@ class AppController extends Controller
     public function beforeFilter(Event $event)
     {
         //pr($this->request);
-         if(empty($this->request->prefix) && ($this->request->prefix !== 'admin')) {
-
-            $this->Auth->allow(); 
+         if(empty($this->request->prefix) && ($this->request->prefix !== 'admin'))
+         {
+            $this->Auth->allow('index','view');
            // $this->Auth->deny(); 
          }
-         else{
-
-            $this->Auth->allow('index','view');       
+         else
+         {
+             $this->Auth->allow();
          }
        
     }
-
-
-    // public function beforeFilter(Event $event)
-    // {
-    //     $this->Auth->allow('index','view');
-    // }
-
-
 
     public function beforeRender(Event $event)
     {

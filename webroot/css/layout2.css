@@ -1,27 +1,24 @@
 body{
-	margin: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px !important;
 
 }
 .back
 {
 	background-image: url("../webroot/img/Layer 16.jpg");
-	background-size: 100% 100%;
+	background-size: cover;
 	height:130px;
 	position: relative;	
+		padding-left:-15px !important;
+
 }
 
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
-    border: 1px solid #ddd;
-}
 
 th, td {
-    border: none;
-    text-align: left;
-    padding: 20	px;
-    width: 50px;
+	min-width: 200px;
+}
+.tab
+{
+	width: 100%;
 }
 
 

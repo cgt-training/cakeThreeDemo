@@ -1,7 +1,7 @@
-<div>
+<div class="row">
 		
 
-	<nav class="navbar navbar-inverse">
+	<nav class="navbar navbar-inverse ">
 	  	<div class="container-fluid">
 	    	<div class="navbar-header">
 		      	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -53,12 +53,12 @@
 			 			<?php 
 			 				if(!$this->request->session()->read('Auth.User.username'))
 			 				{
-			 					$this->Html->link(__('<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>'), ['action' => 'view'],['escape'=>false,'title'=>'View','class'=>'AjaxLink']);
+			 					// $this->Html->link(__('<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>'), ['action' => 'view'],['escape'=>false,'title'=>'View','class'=>'AjaxLink']);
 
-				 				// 	echo $this->Html->link('Register',
-			 					// 	['controller' => 'Users', 
-			 					// 	'action' =>'add']
-			 					// ); 
+				 					echo $this->Html->link('Register',
+			 						['controller' => 'Users', 
+			 						'action' =>'add']
+			 					); 
 			 				}
 			 			?>
 			 		</li>
@@ -82,14 +82,13 @@
 			 			?>
 			 		</li>
 			    </ul>
-		    <
+		    
 	    </div>
 	  </div>
 	</nav>
-
-		
-	</div>
-
 	<div class="container-fluid back">
 
 	</div>
+		
+	</div>
+

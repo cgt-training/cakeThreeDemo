@@ -1,15 +1,17 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Blog Post'), ['action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="blogPosts index large-9 medium-8 columns content">
-    <h3><?= __('Blog Posts') ?></h3>
-    <div class="" style="overflow-x:auto;">
-        <table class="" cellpadding="0" cellspacing="0">
-            <thead>
-                <tr>
+<div class="">
+    <nav class="col-md-2 col-xs-12" id="actions-sidebar" style="margin-top: 5%;">
+        <ul class="side-nav">
+            <li class="heading"><h4><?= __('Actions') ?></h4></li>
+            <li><h4><?= $this->Html->link(__('New Blog Post'), ['action' => 'add']) ?></h4></li>
+        </ul>
+    </nav>
+      
+        <div class="table-responsive col-md-10 col-xs-12">    
+                <h3><?= __('Blog Posts') ?></h3>
+      
+        <table class="table">
+          <thead>
+            <tr>
                     <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                     <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                     <th scope="col"><?= $this->Paginator->sort('post_no') ?></th>
@@ -17,9 +19,9 @@
                     <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
                     <th scope="col"><?= $this->Paginator->sort('flag') ?></th>
                     <th scope="col" class="actions"><?= __('Actions') ?></th>
-                </tr>
-            </thead>
-            <tbody>
+            </tr>
+          </thead>
+          <tbody>
                 <?php foreach ($blogPosts as $blogPost): ?>
                 <tr>
                     <td><?= $this->Number->format($blogPost->id) ?></td>
@@ -35,15 +37,22 @@
                     </td>
                 </tr>
                 <?php endforeach; ?>
-            </tbody>
+          </tbody>
         </table>
+        </div>
+
+        <div class="paginator col-md-12 col-xs-12 text-center">
+            <ul class="pagination">
+                <?= $this->Paginator->prev('< ' . __('previous')) ?>
+                <?= $this->Paginator->numbers() ?>
+                <?= $this->Paginator->next(__('next') . ' >') ?>
+            </ul>
+            <p><?= $this->Paginator->counter() ?></p>
+        </div>
     </div>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-        </ul>
-        <p><?= $this->Paginator->counter() ?></p>
-    </div>
-</div>
+
+
+
+
+
+
