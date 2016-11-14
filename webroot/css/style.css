@@ -5,6 +5,10 @@ body{
 {
 	text-align: center;
 }
+th td
+{
+	min-width: 200px;
+}
 .back
 {
 	background-image: url("../img/Layer 5.jpg");
