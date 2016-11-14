@@ -29,7 +29,10 @@
                 </ul>
                 <ul class="nav">
                     <li class="active">
-                        <a href="#">Dashboard</a>
+                    <?php
+                    echo $this->Html->link(__("Dashboard"),
+                        ["controller"=>"dashboards","action"=>"display"])
+                    ?>
                     </li>
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Settings <b class="caret"></b>
@@ -96,14 +99,16 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a tabindex="-1" href="#">User List</a>
+                                <?php echo $this->Html->link(__("change_password"),
+                                    ['controller'=>'users','action'=>'change_password']);
+                                ?>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a tabindex="-1" href="#">Search</a>
                             </li>
                             <li>
                                 <a tabindex="-1" href="#">Permissions</a>
-                            </li>
+                            </li> -->
                         </ul>
                     </li>
                 </ul>

@@ -59,8 +59,8 @@ class AppController extends Controller
             ],
 
             'logoutRedirect' => [
-            'controller' => 'BlogPosts',
-            'action' => 'index',
+            'controller' => 'users',
+            'action' => 'login',
             'prefix' => false,
                 
             ],
@@ -112,7 +112,7 @@ class AppController extends Controller
           // echo "test".$user['role'];exit;
             if($user['role'] != 'admin'){
                 $this->Flash->error("Unauthorized access");     
-                $this->redirect(['controller' => 'Users','action' => 'logout']);
+               // $this->redirect(['controller' => 'Users','action' => 'logout']);
                 return false;
             }
                return true;
@@ -132,6 +132,10 @@ class AppController extends Controller
     }
     public function beforeFilter(Event $event)
     {
+      if(isset($this->request->prefix) && ($this->request->prefix == 'admin')){
+       // echo "hello";exit;
+          $this->viewBuilder()->layout('main_layout'); 
+        }
         //pr($this->request);
          if(empty($this->request->prefix) && ($this->request->prefix !== 'admin'))
          {
@@ -139,15 +143,22 @@ class AppController extends Controller
            // $this->Auth->deny(); 
          }  
           $this->set('PostsCount', TableRegistry::get('BlogPosts')->find('all')->count());   
+          $this->set('UsersCount', TableRegistry::get('Users')->find('all')->count());   
+          $this->set('ArticlesCount', TableRegistry::get('articles')->find('all')->count());   
+          $this->set('EnquiryCount', TableRegistry::get('enquiry')->find('all')->count());   
        
     }
 
     public function beforeRender(Event $event)
     {
+       
         if (!array_key_exists('_serialize', $this->viewVars) &&
             in_array($this->response->type(), ['application/json', 'application/xml'])
         ) {
             $this->set('_serialize', true);
         }
+
+       
+
     }
 }

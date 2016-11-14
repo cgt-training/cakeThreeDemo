@@ -1,5 +1,5 @@
 <div class="row-fluid">
-    <div class="span9" id="content">
+    <div class="span12" id="content">
         <div class="row-fluid">
             <div class="block">
                 <?= $this->Flash->render() ?>
@@ -18,7 +18,7 @@
                 </div>
                 <div class="block-content collapse in">
                     <div class="span12">
-                        <table class="table table-striped table-bordered TableDataClass">
+                        <table class="table table-striped table-bordered">
                             <tbody> 
                                 <tr>
                                     <th scope="row"><?= __('Name') ?></th>

@@ -84,6 +84,25 @@ class UsersController extends AppController
         $this->Flash->error("Logout successful");     
         return $this->redirect(['controller'=>'users','action' => 'login']);
     }
+    public function change_password() { 
+        $user =$this->Users->get($this->Auth->user('id')); 
+        if (!empty($this->request->data)) {
+            $user = $this->Users->patchEntity($user, 
+                            [ 'old_password' => $this->request->data['old_password'],
+                           'password' => $this->request->data['password1'], 
+                           'password1' => $this->request->data['password1'], 
+                           'password2' => $this->request->data['password2'] ], 
+                           ['validate' => 'password'] ); 
+        if ($this->Users->save($user)) { 
+            $this->Flash->success('The password is successfully changed'); 
+            return $this->redirect(['controller'=>'Dashboards','action'=>'display']);
+        } 
+        else {   
+            $this->Flash->error('There was an error during the save!'); 
+        } 
+        } 
+        $this->set('user',$user); 
+    } 
     public function index()
     {
         $users = $this->paginate($this->Users);

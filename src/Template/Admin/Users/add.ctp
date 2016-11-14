@@ -1,6 +1,6 @@
 <div class="row-fluid">
 <?= $this->Flash->render() ?>
-    <div class="span9" id="content">
+    <div class="span12" id="content">
          <!-- validation -->
         <div class="row-fluid">
              <!-- block -->
