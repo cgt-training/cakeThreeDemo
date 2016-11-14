@@ -1,3 +1,7 @@
+<?php
+     $this->Html->addCrumb('Users',['action' => 'index']);
+     $this->Html->addCrumb('Edit User');
+?>
 <div class="row-fluid">
     <div class="span12" id="content">
          <!-- validation -->

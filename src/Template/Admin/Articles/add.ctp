@@ -1,10 +1,12 @@
+<?php
+     $this->Html->addCrumb(' Articles ',['action' => 'index']);
+     $this->Html->addCrumb(' Add Article');
+?>
 <div class="row-fluid">
 <?= $this->Flash->render() ?>
     <div class="span12" id="content">
          <!-- validation -->
         <div class="row-fluid">
-             <!-- block -->
-            <?php echo $this->Html->getCrumbs(' > ', [ 'text' => __('List Articles'), 'url' => ['action' => 'index'],  'escape' => false,'class'=>'AjaxLink']);?>
             <div class="block">
                 <div class="navbar navbar-inner block-header">
                     <div class="muted pull-left"><?= __('Add Article') ?></div>

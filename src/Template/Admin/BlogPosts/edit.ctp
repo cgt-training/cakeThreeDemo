@@ -1,3 +1,7 @@
+<?php
+     $this->Html->addCrumb('Blog Posts',['controller' => 'BlogPosts', 'action' => 'index']);
+     $this->Html->addCrumb('Edit Blog Post');
+?>
 <div class="row-fluid">
     <div class="span12" id="content">
          <!-- validation -->

@@ -36,6 +36,14 @@
             ['escape'=>false]);
         ?>                          
     </li>
+     <li>
+        <?php
+        echo $this->Html->link('<span class="badge badge-success pull-right">'.$ProductsCount.'</span> 
+            <i class="icon-gift"></i> Products',
+            ['controller'=>'products','action'=>'index'],
+            ['escape'=>false]);
+        ?>                          
+    </li>
 <!--       <li>
         <a href="#"><span class="badge badge-success pull-right">731</span> Orders</a>
     </li>                        

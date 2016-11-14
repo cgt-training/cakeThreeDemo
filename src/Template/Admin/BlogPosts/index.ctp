@@ -1,6 +1,6 @@
 <div class="row-fluid">
 <?= $this->Flash->render() ?>
-        <div class="navbar">
+        <!-- <div class="navbar">
             <div class="navbar-inner">
                 <ul class="breadcrumb">
                     <i class="icon-chevron-left hide-sidebar"><a href='#' title="Hide Sidebar" rel='tooltip'>&nbsp;</a></i>
@@ -14,7 +14,7 @@
                     <li class="active">Tools</li>
                 </ul>
             </div>
-        </div>
+        </div> -->
 </div>
 
 
