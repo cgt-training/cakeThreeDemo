@@ -9,16 +9,20 @@
             <div class="nav-collapse collapse">
                 <ul class="nav pull-right">
                     <li class="dropdown">
-                        <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i> Vincent Gabriel <i class="caret"></i>
-
-                        </a>
-                        <ul class="dropdown-menu">
+                    <?php
+                    $username = $this->request->Session()->read('Auth.User.username');
+                    echo $this->Html->link('<i class="icon-user"></i>'.h($username).'<i class="caret"></i>',
+                     ['controller' => 'dashboards', 'action' => 'display'],
+                     ['role'=>"button", 'class'=>"dropdown-toggle", 'data-toggle'=>"dropdown",'escape'=>false]);
+                    ?>
+                       <ul class="dropdown-menu">
                             <li>
-                                <a tabindex="-1" href="#">Profile</a>
+                                <?=  $this->Html->link(__('Profile'), '#',['href'=>'#']); ?>
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a tabindex="-1" href="login.html">Logout</a>
+                            <?=  $this->Html->link(__('Log Out'), ['controller' => 'Users', 'action' => 'logout']); ?>       
+                        
                             </li>
                         </ul>
                     </li>

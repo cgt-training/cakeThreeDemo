@@ -16,6 +16,7 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
+use Cake\ORM\TableRegistry;
 
 /**
  * Application Controller
@@ -102,7 +103,33 @@ class AppController extends Controller
      * @param \Cake\Event\Event $event The beforeRender event.
      * @return \Cake\Network\Response|null|void
      */
+    public function isAuthorized($user = null)
+    {
 
+      // echo pr($_SESSION) ;exit;
+        if (isset($this->request->params['prefix']) && $this->request->params['prefix'] === 'admin') 
+        {
+          // echo "test".$user['role'];exit;
+            if($user['role'] != 'admin'){
+                $this->Flash->error("Unauthorized access");     
+                $this->redirect(['controller' => 'Users','action' => 'logout']);
+                return false;
+            }
+               return true;
+        }  
+        else
+        {
+            // Admin can access every action
+            if (isset($user['role']) && $user['role'] === 'admin') {
+                return true;
+            }
+
+            // Default deny
+            //$this->Flash->error("Unauthorized access"); 
+            //   $this->redirect(['action' => 'index']);
+            return false;
+        }
+    }
     public function beforeFilter(Event $event)
     {
         //pr($this->request);
@@ -110,11 +137,8 @@ class AppController extends Controller
          {
             $this->Auth->allow('index','view');
            // $this->Auth->deny(); 
-         }
-         else
-         {
-             $this->Auth->allow();
-         }
+         }  
+          $this->set('PostsCount', TableRegistry::get('BlogPosts')->find('all')->count());   
        
     }
 

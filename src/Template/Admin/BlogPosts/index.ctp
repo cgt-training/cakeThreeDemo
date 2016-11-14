@@ -1,4 +1,5 @@
 <div class="row-fluid">
+<?= $this->Flash->render() ?>
         <div class="navbar">
             <div class="navbar-inner">
                 <ul class="breadcrumb">
@@ -56,7 +57,7 @@
                     <td><?= h($blogPost->modified) ?></td>
                     <td><?= h($blogPost->flag) ?></td>
                     <td class="text-center actions">
-                        <?= $this->Html->link(__('<i class="icon-th-list"></i>'), ['action' => 'view', $blogPost->id],['escape'=>false,'title'=>'View','class'=>'AjaxLink']) ?>
+                        <?= $this->Html->link(__('<i class="icon-eye-open"></i>'), ['action' => 'view', $blogPost->id],['escape'=>false,'title'=>'View','class'=>'AjaxLink']) ?>
                         <?= $this->Html->link(__('<i class="icon-edit"></i>'), ['action' => 'edit', $blogPost->id],['escape'=>false,'title'=>'Edit','class'=>'AjaxLink']) ?>
                         <?= $this->Form->postLink(__('<i class="icon-remove"></i>'), ['action' => 'delete', $blogPost->id], 
                         ['confirm' => __('Are you sure you want to delete # {0}?', $blogPost->id),'escape'=>false,'title'=>'Delete','class'=>'AjaxLink']) ?>
