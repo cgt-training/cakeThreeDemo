@@ -38,6 +38,11 @@ class UsersController extends AppController
     {
         //pr($this->request->is);
        // echo $this->Auth->redirectUrl();
+        //pr($this->Auth->User());
+        if($this->Auth->User())
+        {
+          $this->redirect(['controller'=>'Dashboards','action'=>'display']);  
+        }
         $this->viewBuilder()->layout('login');
         if(isset($this->request->data['remember_me']) && $this->request->data['remember_me']=='Y')
         {
@@ -79,7 +84,7 @@ class UsersController extends AppController
 
     public function logout()
     {
-        //$this->Cookie->delete('UserNew');
+        $this->Cookie->delete('UserNew');
         $this->request->Session()->delete('Auth.Admin');
         $this->Flash->error("Logout successful");     
         return $this->redirect(['controller'=>'users','action' => 'login']);

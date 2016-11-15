@@ -1,6 +1,6 @@
 <?php
-     $this->Html->addCrumb(' Articles ',['action' => 'index']);
-     $this->Html->addCrumb(' Add Article');
+     $this->Html->addCrumb(__(' Articles '),['action' => 'index']);
+     $this->Html->addCrumb(__(' Add Article'));
 ?>
 <div class="row-fluid">
 <?= $this->Flash->render() ?>
@@ -18,10 +18,10 @@
                 <fieldset>
                 <div class="alert alert-error hide">
                     <button class="close" data-dismiss="alert"></button>
-                    You have some form errors. Please check below.
+                    <?= __("You have some form errors. Please check below.");?>
                 </div>
                 <div class="control-group">
-                    <label class="control-label" for="title">Title<span class="required">*</span></label>
+                    <label class="control-label" for="title"><?=__("Title");?><span class="required">*</span></label>
                     <div class="controls">
                     <?php
                         echo $this->Form->input('title',['class'=>'span6 m-wrap','required'=>true,'label'=>false,'digits'=>true]);
@@ -29,7 +29,7 @@
                     </div>
                 </div>
                 <div class="control-group">
-                    <label class="control-label" for="body">Body<span class="required">*</span></label>
+                    <label class="control-label" for="body"><?=__("Body");?><span class="required">*</span></label>
                     <div class="controls">
                         <?php
                            echo $this->Form->input('body',['class'=>'span6 m-wrap','required'=>true,'label'=>false,'data-required'=>1]);

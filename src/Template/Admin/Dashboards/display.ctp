@@ -2,7 +2,7 @@
 use Cake\I18n\Date;
 ?>
  <!-- Content Header (Page header) --> 
-<h3>Dashboard <small>Control panel</small></h3>
+<h3><?= __("Dashboard");?> <small><?= __("Control panel");?></small></h3>
 <?= $this->Flash->render() ?>
 <div class="row-fluid">
     <div class="span6">
@@ -10,7 +10,7 @@ use Cake\I18n\Date;
         <div class="block">
 
             <div class="navbar navbar-inner block-header">
-                <div class="muted pull-left">Blog Posts</div>
+                <div class="muted pull-left"><?= __("Blog Posts");?></div>
                 <div class="pull-right"><span class="badge badge-info"><?= h($PostsCount)?></span> </div>
             </div>
             <div class="block-content collapse in">
@@ -45,7 +45,7 @@ use Cake\I18n\Date;
                 <div class="box-footer clearfix no-border">
                 <?= 
                    $this->Html->link(
-                   $this->Form->button('<i class="icon-plus"></i> View All', ['type' => 'button','class'=>'btn btn-default pull-right']),
+                   $this->Form->button('<i class="icon-plus"></i> '.__("View All"), ['type' => 'button','class'=>'btn btn-default pull-right']),
                    ["controller"=>'BlogPosts','action'=>'index'],
                    ['escape' => false]
                 );
@@ -59,7 +59,7 @@ use Cake\I18n\Date;
         <!-- block -->
         <div class="block">
             <div class="navbar navbar-inner block-header">
-                <div class="muted pull-left">Users</div>
+                <div class="muted pull-left"><?= __("Users");?></div>
                 <div class="pull-right"><span class="badge badge-info"><?= h($UsersCount)?></span></div>
             </div>
             <div class="block-content collapse in">
@@ -94,7 +94,7 @@ use Cake\I18n\Date;
                 <div class="box-footer clearfix no-border">
                 <?= 
                    $this->Html->link(
-                   $this->Form->button('<i class="icon-plus"></i> View All', ['type' => 'button','class'=>'btn btn-default pull-right']),
+                   $this->Form->button('<i class="icon-plus"></i> '.__("View All"), ['type' => 'button','class'=>'btn btn-default pull-right']),
                    ["controller"=>'users','action'=>'index'],
                    ['escape' => false]
                 );
@@ -111,7 +111,7 @@ use Cake\I18n\Date;
         <!-- block -->
         <div class="block">
             <div class="navbar navbar-inner block-header">
-                <div class="muted pull-left">Articles</div>
+                <div class="muted pull-left"><?=__("Articles")?></div>
                 <div class="pull-right"><span class="badge badge-info"><?= h($ArticlesCount)?></span></div>
             </div>
             <div class="block-content collapse in">
@@ -147,7 +147,7 @@ use Cake\I18n\Date;
                  <div class="box-footer clearfix no-border">
                 <?= 
                    $this->Html->link(
-                   $this->Form->button('<i class="icon-plus"></i> View All', ['type' => 'button','class'=>'btn btn-default pull-right']),
+                   $this->Form->button('<i class="icon-plus"></i> '.__("View All"), ['type' => 'button','class'=>'btn btn-default pull-right']),
                    ["controller"=>'articles','action'=>'index'],
                    ['escape' => false]
                 );
@@ -161,7 +161,7 @@ use Cake\I18n\Date;
         <!-- block -->
         <div class="block">
             <div class="navbar navbar-inner block-header">
-                <div class="muted pull-left">Enquiry</div>
+                <div class="muted pull-left"><?=__("Enquiry")?></div>
                 <div class="pull-right"><span class="badge badge-info"><?= h($EnquiryCount)?></span>
 
                 </div>
@@ -198,7 +198,7 @@ use Cake\I18n\Date;
                 <div class="box-footer clearfix no-border">
                 <?= 
                    $this->Html->link(
-                   $this->Form->button('<i class="icon-plus"></i> View All', ['type' => 'button','class'=>'btn btn-default pull-right']),
+                   $this->Form->button('<i class="icon-plus"></i> '.__("View All"), ['type' => 'button','class'=>'btn btn-default pull-right']),
                    ["controller"=>'users','action'=>'index'],
                    ['escape' => false]
                 );

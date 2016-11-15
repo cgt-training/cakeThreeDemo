@@ -1,6 +1,6 @@
 <?php
-     $this->Html->addCrumb('Blog Posts',['controller' => 'BlogPosts', 'action' => 'index']);
-     $this->Html->addCrumb('Edit Blog Post');
+     $this->Html->addCrumb(__('Blog Posts'),['controller' => 'BlogPosts', 'action' => 'index']);
+     $this->Html->addCrumb(__('Edit Blog Post'));
 ?>
 <div class="row-fluid">
     <div class="span12" id="content">
@@ -11,14 +11,14 @@
                 <div class="navbar navbar-inner block-header">
                     <div class="muted pull-left"><?= __('Edit Blog Post') ?></div>
                         <div class="muted pull-right">
-                           <?= $this->Html->link('<i class="icon-list"></i>', ['action' => 'index', $blogPost->id],['escape'=>false,'title'=>'index','class'=>'AjaxLink']) ?>&nbsp;&nbsp;
+                           <?= $this->Html->link('<i class="icon-list"></i>', ['action' => 'index', $blogPost->id],['escape'=>false,'title'=>__('index'),'class'=>'AjaxLink']) ?>&nbsp;&nbsp;
 
-                        <?= $this->Html->link('<i class="icon-eye-open"></i>', ['action' => 'View', $blogPost->id],['escape'=>false,'title'=>'View','class'=>'AjaxLink']) ?>&nbsp;&nbsp;
+                        <?= $this->Html->link('<i class="icon-eye-open"></i>', ['action' => 'View', $blogPost->id],['escape'=>false,'title'=>__('View'),'class'=>'AjaxLink']) ?>&nbsp;&nbsp;
                      
                         <?= $this->Form->postLink(
                         '<i class="icon-remove"></i>',
                         ['action' => 'delete', $blogPost->id],
-                        ['confirm' => 'Are you sure?','escape'=>false,'title'=>'Delete'])
+                        ['confirm' => __('Are you sure?'),'escape'=>false,'title'=>__('Delete')])
                         ?>
                         </div>
                 </div>
@@ -29,10 +29,10 @@
                 <fieldset>
                         <div class="alert alert-error hide">
                             <button class="close" data-dismiss="alert"></button>
-                            You have some form errors. Please check below.
+                            <?= __("You have some form errors. Please check below.");?>
                         </div>
                         <div class="control-group">
-                            <label class="control-label" for="name">Name<span class="required">*</span></label>
+                            <label class="control-label" for="name"><?=__("Name");?><span class="required">*</span></label>
                             <div class="controls">
                             <?php
                                 echo $this->Form->input('name',['class'=>'span6 m-wrap','required'=>true,'label'=>false]);
@@ -40,7 +40,7 @@
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label" for="description">Description<span class="required">*</span></label>
+                            <label class="control-label" for="description"><?=__("Description");?><span class="required">*</span></label>
                             <div class="controls">
                                 <?php
                                    echo $this->Form->input('description',['class'=>'span6 m-wrap','required'=>true,'label'=>false,'data-required'=>1]);
@@ -48,7 +48,7 @@
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label" class="post_no">Post No<span class="required">*</span></label>
+                            <label class="control-label" class="post_no"><?=__("Post No");?><span class="required">*</span></label>
                             <div class="controls">
                                 <?php
                                    echo $this->Form->input('post_no',['class'=>'span6 m-wrap','required'=>true,'label'=>false]);
@@ -56,7 +56,7 @@
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label" for="flag">Flag<span class="required">*</span></label>
+                            <label class="control-label" for="flag"><?=__("Flag");?><span class="required">*</span></label>
                             <div class="controls">
                                <?php
                                    echo $this->Form->input('flag',['class'=>'span6 m-wrap','required'=>true,'label'=>false]);

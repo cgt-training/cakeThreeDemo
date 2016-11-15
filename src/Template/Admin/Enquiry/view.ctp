@@ -1,6 +1,6 @@
 <?php
-     $this->Html->addCrumb('Enquiry',['action' => 'index']);
-     $this->Html->addCrumb('View Enquiry');
+     $this->Html->addCrumb(__('Enquiry'),['action' => 'index']);
+     $this->Html->addCrumb(__('View Enquiry'));
 ?>
 <div class="row-fluid">
     <div class="span12" id="content">
@@ -16,12 +16,13 @@
                         <?= $this->Form->postLink(
                         '<i class="icon-remove"></i>',
                         ['action' => 'delete', $enquiry->id],
-                        ['confirm' => 'Are you sure?','escape'=>false,'title'=>__('Delete Enquiry')])
+                        ['confirm' => __('Are you sure?'),'escape'=>false,'title'=>__('Delete Enquiry')])
                         ?>
                     </div>
                 </div>
                 <div class="block-content collapse in">
                     <div class="span12">
+                    <div class="table-responsive">     
                         <table class="table table-striped table-bordered">
                             <tbody> 
                                 <tr>
@@ -42,6 +43,7 @@
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
                     </div>
                  </div>
             </div>

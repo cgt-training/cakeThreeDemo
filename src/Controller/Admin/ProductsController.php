@@ -49,6 +49,18 @@ class ProductsController extends AppController
     public function add()
     {
         $product = $this->Products->newEntity();
+        if(!empty($this->request->data['dp']['name']))
+        {
+            $file = $this->request->data['dp']; //put the data into a var for easy use
+            $ext = substr(strtolower(strrchr($file['name'], '.')), 1); //get the extension
+            $arr_ext = array('jpg', 'jpeg', 'gif','png'); //set allowed extensions
+            $setNewFileName = time() . "_" . rand(000000, 999999).$ext;
+            if(in_array($ext, $arr_ext))
+            {
+                move_uploaded_file($file['tmp_name'], WWW_ROOT . 'img/uploads/' . $setNewFileName);
+                $this->request->data['file'] = 'uploads/' . $setNewFileName;
+            }
+        }
         if ($this->request->is('post')) {
             $product = $this->Products->patchEntity($product, $this->request->data);
             if ($this->Products->save($product)) {
@@ -75,7 +87,31 @@ class ProductsController extends AppController
         $product = $this->Products->get($id, [
             'contain' => []
         ]);
+        if(!empty($this->request->data['dp']['name']) && $this->request->data['dp']['error']==0)
+        {
+            $file = $this->request->data['dp']; //put the data into a var for easy use
+
+            $ext = substr(strtolower(strrchr($file['name'], '.')), 1); //get the extension
+            $arr_ext = array('jpg', 'jpeg', 'gif','png'); //set allowed extensions
+            $setNewFileName = time() . "_" . rand(000000, 999999).$ext;
+            //only process if the extension is valid
+            if(in_array($ext, $arr_ext))
+            {
+                //do the actual uploading of the file. First arg is the tmp name, second arg is
+                //where we are putting it
+                move_uploaded_file($file['tmp_name'], WWW_ROOT . 'img/uploads/' . $setNewFileName);
+
+                //prepare the filename for database entry
+                $this->request->data['file'] = 'uploads/' . $setNewFileName;
+            }
+        }
+        else
+        {
+            unset($this->request->data['file']);
+        }
+
         if ($this->request->is(['patch', 'post', 'put'])) {
+             //pr($this->request->data);exit;
             $product = $this->Products->patchEntity($product, $this->request->data);
             if ($this->Products->save($product)) {
                 $this->Flash->success(__('The product has been saved.'));

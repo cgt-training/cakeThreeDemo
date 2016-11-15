@@ -1,6 +1,6 @@
 <?php
-     $this->Html->addCrumb('Users',['action' => 'index']);
-     $this->Html->addCrumb('Change Password');
+     $this->Html->addCrumb(__('Users'),['action' => 'index']);
+     $this->Html->addCrumb(__('Change Password'));
 ?>
 <div class="row-fluid">
     <div class="span12" id="content">

@@ -1,6 +1,6 @@
 <?php
-     $this->Html->addCrumb('Users',['action' => 'index']);
-     $this->Html->addCrumb('Edit User');
+     $this->Html->addCrumb(__('Users'),['action' => 'index']);
+     $this->Html->addCrumb(__('Edit User'));
 ?>
 <div class="row-fluid">
     <div class="span12" id="content">
@@ -11,14 +11,14 @@
                 <div class="navbar navbar-inner block-header">
                     <div class="muted pull-left"><?= __('Edit User') ?></div>
                         <div class="muted pull-right">
-                        <?= $this->Html->link('<i class="icon-list"></i>', ['action' => 'index', $user->id],['escape'=>false,'title'=>'index','class'=>'AjaxLink']) ?>&nbsp;&nbsp;
+                        <?= $this->Html->link('<i class="icon-list"></i>', ['action' => 'index', $user->id],['escape'=>false,'title'=>__('index'),'class'=>'AjaxLink']) ?>&nbsp;&nbsp;
 
-                        <?= $this->Html->link('<i class="icon-eye-open"></i>', ['action' => 'View', $user->id],['escape'=>false,'title'=>'View','class'=>'AjaxLink']) ?>&nbsp;&nbsp;
+                        <?= $this->Html->link('<i class="icon-eye-open"></i>', ['action' => 'View', $user->id],['escape'=>false,'title'=>__('View'),'class'=>'AjaxLink']) ?>&nbsp;&nbsp;
                      
                         <?= $this->Form->postLink(
                         '<i class="icon-remove"></i>',
                         ['action' => 'delete', $user->id],
-                        ['confirm' => 'Are you sure?','escape'=>false,'title'=>'Delete'])
+                        ['confirm' => __('Are you sure you want to delete # {0}?', $user->username),'escape'=>false,'title'=>__('Delete')])
                         ?>
                         </div>
                 </div>
@@ -30,7 +30,7 @@
                
                 <div class="alert alert-error hide">
                     <button class="close" data-dismiss="alert"></button>
-                    You have some form errors. Please check below.
+                    <?= __("You have some form errors. Please check below.");?>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="name"><?=__('Username')?><span class="required">*</span></label>
@@ -40,20 +40,24 @@
                     ?>                               
                     </div>
                 </div>
-                <div class="control-group">
+<!--                 <div class="control-group">
                     <label class="control-label" for="name"><?=__('Password')?><span class="required">*</span></label>
                     <div class="controls">
                     <?php
                         echo $this->Form->input('password',['class'=>'span6 m-wrap','required'=>true,'label'=>false]);
                     ?>                               
                     </div>
-                </div>
+                </div> -->
                 <div class="control-group">
-                    <label class="control-label" for="description"><?=__('Profile Pic')?><span class="required">*</span></label>
+                    <label class="control-label" for="description"><?=__('Profile Pic')?></label>
                     <div class="controls">
                         <?php
                         echo $this->Form->input('image',['type'=>'file','class'=>'input-file uniform_on','required'=>false,'label'=>false,'data-required'=>1]);                    
-                        ?>                                   
+                        ?> <br>                                  
+                        <?php
+                            if(!empty($user->image))
+                                echo  $this->Html->image(h($user->image), ['alt' => 'CakePHP','class'=>'img-responsive','width'=>'120px']); 
+                        ?>
                     </div>
                 </div>
                 <div class="control-group">

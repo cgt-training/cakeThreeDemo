@@ -1,6 +1,6 @@
 <?php
-     $this->Html->addCrumb('Products',['action' => 'index']);
-     $this->Html->addCrumb('View Product');
+     $this->Html->addCrumb(__('Products'),['action' => 'index']);
+     $this->Html->addCrumb(__('View Product'));
 ?>
 <div class="row-fluid">
     <div class="span12" id="content">
@@ -16,12 +16,13 @@
                         <?= $this->Form->postLink(
                         '<i class="icon-remove"></i>',
                         ['action' => 'delete', $product->id],
-                        ['confirm' => 'Are you sure?','escape'=>false,'title'=>__('Delete Product')])
+                        ['confirm' => __('Are you sure you want to delete # {0}?', $product->name),'escape'=>false,'title'=>__('Delete Product')])
                         ?>
                     </div>
                 </div>
                 <div class="block-content collapse in">
                     <div class="span12">
+                    <div class="table-responsive">     
                         <table class="table table-striped table-bordered">
                             <tbody> 
                                 <tr>
@@ -54,6 +55,7 @@
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
                     </div>
                  </div>
             </div>

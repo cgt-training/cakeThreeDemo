@@ -22,6 +22,7 @@
                 </div>
                 <div class="block-content collapse in">
                     <div class="span12">
+                    <div class="table-responsive">     
                         <table class="table table-striped TableDataClass">
                             <tbody> 
                                 <tr>
@@ -42,6 +43,7 @@
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
                     </div>
                  </div>
             </div>

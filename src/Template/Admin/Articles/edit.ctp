@@ -1,6 +1,6 @@
 <?php
-     $this->Html->addCrumb('Articles',['action' => 'index']);
-     $this->Html->addCrumb('Edit Article');
+     $this->Html->addCrumb(__('Articles'),['action' => 'index']);
+     $this->Html->addCrumb(__('Edit Article'));
 ?>
 <div class="row-fluid">
     <div class="span12" id="content">
@@ -11,14 +11,14 @@
                 <div class="navbar navbar-inner block-header">
                     <div class="muted pull-left"><?= __('Edit Articles') ?></div>
                         <div class="muted pull-right">
-                           <?= $this->Html->link('<i class="icon-list"></i>', ['action' => 'index', $article->id],['escape'=>false,'title'=>'index','class'=>'AjaxLink']) ?>&nbsp;&nbsp;
+                           <?= $this->Html->link('<i class="icon-list"></i>', ['action' => 'index', $article->id],['escape'=>false,'title'=>__('index'),'class'=>'AjaxLink']) ?>&nbsp;&nbsp;
 
-                        <?= $this->Html->link('<i class="icon-eye-open"></i>', ['action' => 'View', $article->id],['escape'=>false,'title'=>'View','class'=>'AjaxLink']) ?>&nbsp;&nbsp;
+                        <?= $this->Html->link('<i class="icon-eye-open"></i>', ['action' => 'View', $article->id],['escape'=>false,'title'=>__('View'),'class'=>'AjaxLink']) ?>&nbsp;&nbsp;
                      
                         <?= $this->Form->postLink(
                         '<i class="icon-remove"></i>',
                         ['action' => 'delete', $article->id],
-                        ['confirm' => 'Are you sure?','escape'=>false,'title'=>'Delete'])
+                        ['confirm' => 'Are you sure?','escape'=>false,'title'=>__('Delete')])
                         ?>
                         </div>
                 </div>
@@ -29,10 +29,10 @@
                 <fieldset>
                         <div class="alert alert-error hide">
                             <button class="close" data-dismiss="alert"></button>
-                            You have some form errors. Please check below.
+                            <?= __("You have some form errors. Please check below.");?>
                         </div>
                         <div class="control-group">
-                            <label class="control-label" for="title">Title<span class="required">*</span></label>
+                            <label class="control-label" for="title"><?=__("Title");?><span class="required">*</span></label>
                             <div class="controls">
                             <?php
                                 echo $this->Form->input('title',['class'=>'span6 m-wrap','required'=>true,'label'=>false]);
@@ -40,7 +40,7 @@
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label" for="body">Body<span class="required">*</span></label>
+                            <label class="control-label" for="body"><?=__("Body");?><span class="required">*</span></label>
                             <div class="controls">
                                 <?php
                                    echo $this->Form->input('body',['class'=>'span6 m-wrap','required'=>true,'label'=>false,'data-required'=>1]);

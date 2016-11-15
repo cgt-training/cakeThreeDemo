@@ -10,13 +10,15 @@
             <div class="span12">
                <div class="table-toolbar">
                   <div class="btn-group">
-                  <?php
-                  echo $this->Html->link('<button class="btn btn-success">Add New<i class="icon-plus icon-white"></i></button>',
+                   <?php
+                  echo $this->Html->link(
+                    $this->Form->button(__('Add New').' <i class="icon-plus icon-white"></i>',['type'=>'button','class'=>'btn btn-success']),
                     ["action"=>'add'],
                     ['escape'=>false])
-                  ?>                
+                  ?>                  
                   </div>
-               </div>                    
+               </div>  
+               <div class="table-responsive">                       
               <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered TableDataClass">
               <thead>
                 <tr>
@@ -40,20 +42,21 @@
                     <td><?= h($enquiry->created) ?></td>
                     <td><?= h($enquiry->modified) ?></td>           
                     <td class="actions text-center">                   
-                    <?=  $this->Html->link('<i class="icon-eye-open"></i>', ['action' => 'View', $enquiry->id],['escape'=>false,'title'=>'View','class'=>'AjaxLink']) ?>&nbsp;&nbsp;                   
+                    <?=  $this->Html->link('<i class="icon-eye-open"></i>', ['action' => 'View', $enquiry->id],['escape'=>false,'title'=>__('View'),'class'=>'AjaxLink']) ?>&nbsp;&nbsp;                   
                    <?php
-                    echo   $this->Html->link('<i class="icon-edit"></i>', ['action' => 'edit', $enquiry->id],['escape'=>false,'title'=>'Edit','class'=>'AjaxLink']);                                    
+                    echo   $this->Html->link('<i class="icon-edit"></i>', ['action' => 'edit', $enquiry->id],['escape'=>false,'title'=>__('Edit'),'class'=>'AjaxLink']);                                    
                     ?>&nbsp;&nbsp;
                    <?= $this->Form->postLink(
                     '<i class="icon-remove"></i>',
                     ['action' => 'delete', $enquiry->id],
-                    ['confirm' => 'Are you sure?','escape'=>false,'title'=>'Delete','class'=>'AjaxLink']);
+                    ['confirm' => __('Are you sure?'),'escape'=>false,'title'=>__('Delete'),'class'=>'AjaxLink']);
                    ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>
                </tbody>
                 </table>
+              </div>
             </div>
         </div>
     </div>

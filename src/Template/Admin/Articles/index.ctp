@@ -11,12 +11,14 @@
                <div class="table-toolbar">
                   <div class="btn-group">
                   <?php
-                  echo $this->Html->link('<button class="btn btn-success">Add New<i class="icon-plus icon-white"></i></button>',
+                  echo $this->Html->link(
+                    $this->Form->button(__('Add New').' <i class="icon-plus icon-white"></i>',['type'=>'button','class'=>'btn btn-success']),
                     ["action"=>'add'],
                     ['escape'=>false])
                   ?>                
                   </div>
-               </div>                    
+               </div> 
+               <div class="table-responsive">                        
               <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered TableDataClass">
               <thead>
                 <tr>
@@ -50,6 +52,7 @@
                 <?php endforeach; ?>
                </tbody>
                 </table>
+                </div>
             </div>
         </div>
     </div>

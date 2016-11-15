@@ -1,6 +1,6 @@
 <?php
-     $this->Html->addCrumb('Enquiry',['action' => 'index']);
-     $this->Html->addCrumb('Add Enquiry');
+     $this->Html->addCrumb(__('Enquiry'),['action' => 'index']);
+     $this->Html->addCrumb(__('Add Enquiry'));
 ?>
 <div class="row-fluid">
     <?= $this->Flash->render() ?>
@@ -19,10 +19,10 @@
                         <fieldset>
                             <div class="alert alert-error hide">
                                 <button class="close" data-dismiss="alert"></button>
-                                You have some form errors. Please check below.
+                                <?= __("You have some form errors. Please check below.");?>
                             </div>
                             <div class="control-group">
-                                <label class="control-label" for="name">Name<span class="required">*</span></label>
+                                <label class="control-label" for="name"><?=__("Name");?><span class="required">*</span></label>
                                 <div class="controls">
                                 <?php
                                     echo $this->Form->input('name',['class'=>'span6 m-wrap','required'=>true,'label'=>false]);
@@ -30,7 +30,7 @@
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label" for="phone_no">Phone No<span class="required">*</span></label>
+                                <label class="control-label" for="phone_no"><?=__("Phone No");?><span class="required">*</span></label>
                                 <div class="controls">
                                     <?php
                                        echo $this->Form->input('phone_no',['class'=>'span6 m-wrap','required'=>true,'label'=>false,'number'=>true]);
@@ -38,7 +38,7 @@
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label" for="email">Email<span class="required">*</span></label>
+                                <label class="control-label" for="email"><?=__("Email");?><span class="required">*</span></label>
                                 <div class="controls">
                                     <?php
                                        echo $this->Form->input('email',['class'=>'span6 m-wrap','required'=>true,'label'=>false,'email'=>true]);
@@ -46,7 +46,7 @@
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label" for="query">Query<span class="required">*</span></label>
+                                <label class="control-label" for="query"><?=__("Query");?><span class="required">*</span></label>
                                 <div class="controls">
                                     <?php
                                        echo $this->Form->input('query',['class'=>'span6 m-wrap','required'=>true,'label'=>false,'data-required'=>1]);

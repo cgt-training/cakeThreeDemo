@@ -10,14 +10,15 @@
                 <div class="span12">
            <div class="table-toolbar">
               <div class="btn-group">
-              <?php
-              echo $this->Html->link('<button class="btn btn-success">Add New<i class="icon-plus icon-white"></i></button>',
-                ["action"=>'add'],
-                ['escape'=>false])
-              ?>                
+               <?php
+                  echo $this->Html->link(
+                    $this->Form->button(__('Add New').' <i class="icon-plus icon-white"></i>',['type'=>'button','class'=>'btn btn-success']),
+                    ["action"=>'add'],
+                    ['escape'=>false])
+                  ?>                    
               </div>
            </div>
-                    
+              <div class="table-responsive">           
               <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered TableDataClass">
               <thead>
                 <tr>
@@ -48,13 +49,14 @@
                <?= $this->Form->postLink(
                 '<i class="icon-remove"></i>',
                 ['action' => 'delete', $product->id],
-                ['confirm' => 'Are you sure?','escape'=>false,'title'=>'Delete','class'=>'AjaxLink']);
+                ['confirm' => __('Are you sure you want to delete # {0}?', $product->name),'escape'=>false,'title'=>'Delete','class'=>'AjaxLink']);
                ?>
                 </td>
             </tr>
             <?php endforeach; ?>
                </tbody>
                 </table>
+                </div>
             </div>
         </div>
     </div>

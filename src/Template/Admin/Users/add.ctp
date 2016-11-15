@@ -1,6 +1,6 @@
 <?php
-     $this->Html->addCrumb('Users',['action' => 'index']);
-     $this->Html->addCrumb('Add User');
+     $this->Html->addCrumb(__('Users'),['action' => 'index']);
+     $this->Html->addCrumb(__('Add User'));
 ?>
 <div class="row-fluid">
     <?= $this->Flash->render() ?>
@@ -18,7 +18,7 @@
                         <fieldset>
                             <div class="alert alert-error hide">
                                 <button class="close" data-dismiss="alert"></button>
-                                You have some form errors. Please check below.
+                                <?= __("You have some form errors. Please check below.");?>
                             </div>
                             <div class="control-group">
                                 <label class="control-label" for="name"><?=__('Username')?><span class="required">*</span></label>

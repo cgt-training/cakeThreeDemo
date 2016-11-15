@@ -1,6 +1,6 @@
 <?php
-     $this->Html->addCrumb('Users',['action' => 'index']);
-     $this->Html->addCrumb('View User');
+     $this->Html->addCrumb(__('Users'),['action' => 'index']);
+     $this->Html->addCrumb(__('View User'));
 ?>
 <div class="row-fluid">
     <div class="span12" id="content">
@@ -16,22 +16,23 @@
                         <?= $this->Form->postLink(
                         '<i class="icon-remove"></i>',
                         ['action' => 'delete', $user->id],
-                        ['confirm' => 'Are you sure?','escape'=>false,'title'=>__('Delete User')])
+                        ['confirm' => __('Are you sure you want to delete # {0}?', $user->username),'escape'=>false,'title'=>__('Delete User')])
                         ?>
                     </div>
                 </div>
                 <div class="block-content collapse in">
                     <div class="span12">
+                    <div class="table-responsive">     
                         <table class="table table-striped table-bordered">
                             <tbody> 
                                 <tr>
                                     <th scope="row"><?= __('Username') ?></th>
                                     <td><?= h($user->username); ?></td>
                                 </tr>
-                                <tr>
+                                <!-- <tr>
                                     <th scope="row"><?= __('Password') ?></th>
                                     <td><?= h($user->password); ?></td>
-                                </tr>
+                                </tr> -->
                                 <tr>
                                     <th scope="row"><?= __('Role') ?></th>
                                     <td><?= h($user->role); ?></td>
@@ -54,6 +55,7 @@
                                 </tr> 
                             </tbody>
                         </table>
+                    </div>
                     </div>
                  </div>
             </div>

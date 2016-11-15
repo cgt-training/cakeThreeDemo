@@ -19,7 +19,7 @@
                         <ul class="breadcrumb">
                             <i class="icon-chevron-right show-sidebar" style="display:none;"><a href='#' title="Show Sidebar" rel='tooltip'>&nbsp;</a></i>
                             <li>
-                                <?php echo $this->Html->getCrumbs(' > ',  [ 'text' => __('<i class="icon-home"></i> Dashboard'), 'url' => ['controller'=>'dashboards','action' => 'display'],  'escape' => false,'class'=>'AjaxLink']);?>   
+                                <?php echo $this->Html->getCrumbs(' <span class="divider">/</span> ',  [ 'text' => __('<i class="icon-home"></i> '.__('Dashboard')), 'url' => ['controller'=>'dashboards','action' => 'display'],  'escape' => false,'class'=>'AjaxLink']);?>   
                             </li>
                         </ul>
                     </div>

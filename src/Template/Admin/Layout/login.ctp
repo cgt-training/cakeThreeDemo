@@ -37,7 +37,7 @@
 
       <div class="modal-header">    
           <h4 class="text-center"><?= $this->Flash->render() ?></h4>      
-          <h1 class="text-center">Login</h1>
+          <h1 class="text-center"><?=__("Login")?></h1>
       </div>
       <div class="modal-body">
       <?php echo $this->fetch('content');?>

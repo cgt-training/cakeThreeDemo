@@ -17,6 +17,7 @@ namespace App\Controller;
 use Cake\Controller\Controller;
 use Cake\Event\Event;
 use Cake\ORM\TableRegistry;
+use Cake\I18n\I18n;
 
 /**
  * Application Controller
@@ -41,9 +42,10 @@ class AppController extends Controller
     public function initialize()
     {
         parent::initialize();
-
+        
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
+        $this->loadComponent('Cookie');
 
          if(isset($this->request->prefix) && ($this->request->prefix == 'admin')){
    
@@ -142,6 +144,8 @@ class AppController extends Controller
     }
     public function beforeFilter(Event $event)
     {
+      $DefaultLang = 'en_HN';
+      I18n::locale($DefaultLang);
       if(isset($this->request->prefix) && ($this->request->prefix == 'admin')){
        // echo "hello";exit;
           $this->viewBuilder()->layout('main_layout'); 

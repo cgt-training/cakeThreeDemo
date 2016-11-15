@@ -1,6 +1,6 @@
 <?php
-     $this->Html->addCrumb('Blog Posts',['controller' => 'BlogPosts', 'action' => 'index']);
-     $this->Html->addCrumb('View Blog Post');
+     $this->Html->addCrumb(__('Blog Posts'),['controller' => 'BlogPosts', 'action' => 'index']);
+     $this->Html->addCrumb(__('View Blog Posts'));
 ?>
 <div class="row-fluid">
     <div class="span12" id="content">
@@ -16,12 +16,13 @@
                         <?= $this->Form->postLink(
                         '<i class="icon-remove"></i>',
                         ['action' => 'delete', $blogPost->id],
-                        ['confirm' => 'Are you sure?','escape'=>false,'title'=>__('Delete Blog Post')])
+                        ['confirm' => __('Are you sure?'),'escape'=>false,'title'=>__('Delete Blog Post')])
                         ?>
                     </div>
                 </div>
                 <div class="block-content collapse in">
                     <div class="span12">
+                    <div class="table-responsive">     
                         <table class="table table-striped table-bordered">
                             <tbody> 
                                 <tr>
@@ -50,6 +51,7 @@
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
                     </div>
                  </div>
             </div>
