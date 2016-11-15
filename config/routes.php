@@ -52,7 +52,7 @@ Router::scope('/', function (RouteBuilder $routes) {
 
    // $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
 
-    $routes->connect('/', ['controller' => 'Articles', 'action' => 'index', 'home']);
+    $routes->connect('/', ['controller' => 'Articles', 'action' => 'index']);
 
 
     /**

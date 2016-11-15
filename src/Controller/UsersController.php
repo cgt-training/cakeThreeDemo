@@ -16,6 +16,11 @@ class UsersController extends AppController
      *
      * @return \Cake\Network\Response|null
      */
+    public $components = ['Paginator'];
+     public $paginate = [
+         'limit' => 5,
+      
+     ];
      public function initialize()
     {
         parent::initialize();
@@ -80,20 +85,26 @@ class UsersController extends AppController
 
     public function logout()
       {
+          //   $this->request->Session()->delete('Auth.User');
+          // $this->Flash->error("Logout successful");  
           return $this->redirect($this->Auth->logout());
       }
 
-        public function login()
-           {
+        public function login(){
+
+
                if ($this->request->is('post')) {
                    $user = $this->Auth->identify();
+                   // print_r($user);
+                   // exit;
                    if ($user) {
                        $this->Auth->setUser($user);
                        return $this->redirect($this->Auth->redirectUrl());
                    }
                    $this->Flash->error(__('Invalid username or password, try again'));
                }
-           }
+
+        }
 
         public function edit($id = null)
     {

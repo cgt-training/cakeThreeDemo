@@ -1,0 +1,65 @@
+ @media only screen and (max-width: 360px) {
+
+  .circle {
+      height: 57px;
+      width: 57px;
+      border-radius: 100%;
+      margin-left: 20%;
+      background: #FF0 none repeat scroll 0% 0%;
+      border: 3px solid #F00;
+  }
+  // Align text to center.
+  .text-xs-center {
+    text-align: center;
+  } 
+
+  .navbar-brand
+  {
+  	font-size: 5vw;
+  }
+  a
+  {
+  	font-size: 3vw;
+  }
+  .nav > li {
+      position: relative;
+      display: block;
+      height: 4vw;
+      margin-top: 0%;
+      padding: 5vw;
+  }
+ 	.txtbox
+ 	{
+ 		margin-top: 2%;
+ 	}
+ 	.navbar-nav > li > a {
+ 	    line-height: 0;
+ 	    padding-bottom: 1px;
+ 	    padding-top: 0;
+ 	}
+ 	input
+ 	{
+ 		height: 10px;
+ 	}
+ 	.form-control
+ 	{
+ 		font-size: 5px;
+ 		height: 20px;
+ 	}
+ 	.btn {
+    display: inline-block;
+    padding: 6px 0px;
+    margin-bottom: 0px;
+    font-size: 7px;
+    font-weight: 400;
+    line-height: 4px;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -moz-user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+}

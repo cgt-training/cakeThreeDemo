@@ -16,6 +16,11 @@ class BlogPostsController extends AppController
      *
      * @return \Cake\Network\Response|null
      */
+    public $components = ['Paginator'];
+     public $paginate = [
+         'limit' => 5,
+      
+     ];
      public function initialize()
     {
         parent::initialize();

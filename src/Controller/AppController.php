@@ -84,8 +84,7 @@ class AppController extends Controller
                     ],
                     'logoutRedirect' => [
                         'controller' => 'Users',
-                        'action' => 'login',
-                        'home'
+                        'action' => 'login'
                     ],
                        'authenticate'=>[
                     'Form'=>[
@@ -140,6 +139,7 @@ class AppController extends Controller
          if(empty($this->request->prefix) && ($this->request->prefix !== 'admin'))
          {
             $this->Auth->allow('index','view');
+            $this->viewBuilder()->Layout('layoutFirst');
            // $this->Auth->deny(); 
          }  
           $this->set('PostsCount', TableRegistry::get('BlogPosts')->find('all')->count());   

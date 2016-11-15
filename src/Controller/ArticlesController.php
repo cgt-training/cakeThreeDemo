@@ -16,11 +16,15 @@ class ArticlesController extends AppController
      *
      * @return \Cake\Network\Response|null
      */
-
+    public $components = ['Paginator'];
+     public $paginate = [
+         'limit' => 5,
+      
+     ];
     public function initialize()
     {
         parent::initialize();
-        $this->viewBuilder()->Layout('layoutSecond');
+        // $this->viewBuilder()->Layout('layoutFirst');
     }
 
     public function index()

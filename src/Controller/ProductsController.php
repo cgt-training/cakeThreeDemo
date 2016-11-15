@@ -16,6 +16,11 @@ class ProductsController extends AppController
      *
      * @return \Cake\Network\Response|null
      */
+    public $components = ['Paginator'];
+     public $paginate = [
+         'limit' => 3,
+      
+     ];
      public function initialize()
     {
         parent::initialize();
