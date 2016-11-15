@@ -25,7 +25,7 @@ class UsersController extends AppController
     {
         parent::initialize();
         // $this->loadComponent('Auth');
-        $this->viewBuilder()->Layout('layoutSecond');
+        // $this->viewBuilder()->Layout('layoutSecond');
     }
 
     public function index()
@@ -85,8 +85,8 @@ class UsersController extends AppController
 
     public function logout()
       {
-          //   $this->request->Session()->delete('Auth.User');
-          // $this->Flash->error("Logout successful");  
+            $this->request->Session()->delete('Auth.User');
+          $this->Flash->error("Logout successful");  
           return $this->redirect($this->Auth->logout());
       }
 

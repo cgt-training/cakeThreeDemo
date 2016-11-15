@@ -31,9 +31,9 @@
                     <td><?= h($blogPost->modified) ?></td>
                     <td><?= h($blogPost->flag) ?></td>
                     <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $blogPost->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $blogPost->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $blogPost->id], ['confirm' => __('Are you sure you want to delete # {0}?', $blogPost->id)]) ?>
+                        <?php echo $this->Html->link(__('View'), ['action' => 'view', $blogPost->id]); ?>
+                        <?php echo $this->Html->link(__('Edit'), ['action' => 'edit', $blogPost->id]); ?>
+                        <?php echo $this->Form->postLink(__('Delete'), ['action' => 'delete', $blogPost->id], ['confirm' => __('Are you sure you want to delete # {0}?', $blogPost->id)]); ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>

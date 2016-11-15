@@ -24,7 +24,8 @@ class ArticlesController extends AppController
     public function initialize()
     {
         parent::initialize();
-        // $this->viewBuilder()->Layout('layoutFirst');
+        // $this->Auth->allow(['index','view']);
+         // $this->viewBuilder()->Layout('layoutFirst');
     }
 
     public function index()

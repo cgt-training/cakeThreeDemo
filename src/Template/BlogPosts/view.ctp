@@ -1,5 +1,3 @@
-
-
 <div class="row" style="margin-top: 3%;">
     <nav class="col-md-2" id="actions-sidebar">
         <ul class="list-group">

@@ -95,10 +95,10 @@ class AppController extends Controller
                         'fields'=>['username'=>'username','password'=>'password']
                     ],
                 ],
-            'storage' => [
-                'className' => 'Session',
+             'storage' => [
+                 'className' => 'Session',
                 'key' => 'Auth.User',              
-            ],
+             ],
             
             'authorize' => ['Controller'],
             ]);
@@ -145,10 +145,21 @@ class AppController extends Controller
        // echo "hello";exit;
           $this->viewBuilder()->layout('main_layout'); 
         }
-        //pr($this->request);
+
          if(empty($this->request->prefix) && ($this->request->prefix !== 'admin'))
          {
-            $this->Auth->allow('index','view');
+            //$this->Auth->allow('index','view');
+        
+          $user=$this->request->session()->read('Auth.User');
+          if($user)
+          {
+          $this->Auth->allow(['index','view','edit','delete']);
+          }
+          else
+          {
+            $this->Auth->allow(['index','view']);
+
+          }
             $this->viewBuilder()->Layout('layoutFirst');
            // $this->Auth->deny(); 
          }  

@@ -24,7 +24,7 @@ class EnquiryController extends AppController
      public function initialize()
     {
         parent::initialize();
-        $this->viewBuilder()->Layout('layoutSecond');
+        // $this->viewBuilder()->Layout('layoutSecond');
     }
     public function index()
     {

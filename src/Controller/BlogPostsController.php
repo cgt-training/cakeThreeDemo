@@ -24,7 +24,7 @@ class BlogPostsController extends AppController
      public function initialize()
     {
         parent::initialize();
-        $this->viewBuilder()->Layout('layoutSecond');
+        // $this->viewBuilder()->Layout('layoutSecond');
     }
     public function index()
     {
@@ -82,6 +82,7 @@ class BlogPostsController extends AppController
      */
     public function edit($id = null)
     {
+     
         $blogPost = $this->BlogPosts->get($id, [
             'contain' => []
         ]);
