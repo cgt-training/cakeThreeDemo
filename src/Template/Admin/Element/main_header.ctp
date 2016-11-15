@@ -10,8 +10,10 @@
                 <ul class="nav pull-right">
                     <li class="dropdown">
                     <?php
-                    $username = $this->request->Session()->read('Auth.User.username');
-                    echo $this->Html->link('<i class="icon-user"></i>'.h($username).'<i class="caret"></i>',
+                   // pr($this->request->Session()->read());
+                   
+                    $username = $this->request->Session()->read('Auth.Admin.username');
+                    echo $this->Html->link('<i class="icon-user"></i> '.h($username).'<i class="caret"></i>',
                      ['controller' => 'dashboards', 'action' => 'display'],
                      ['role'=>"button", 'class'=>"dropdown-toggle", 'data-toggle'=>"dropdown",'escape'=>false]);
                     ?>

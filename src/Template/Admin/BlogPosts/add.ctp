@@ -4,7 +4,10 @@
          <!-- validation -->
         <div class="row-fluid">
              <!-- block -->
-             <?php echo $this->Html->getCrumbs(' > ', [ 'text' => __('List Blog Posts'), 'url' => ['action' => 'index'],  'escape' => false,'class'=>'AjaxLink']);?>
+             <?php
+             $this->Html->addCrumb('Blog Posts',['controller' => 'BlogPosts', 'action' => 'index']);
+             $this->Html->addCrumb('Add Blog Post');
+            ?>
             <div class="block">
                 <div class="navbar navbar-inner block-header">
                     <div class="muted pull-left"><?= __('Add Blog Post') ?></div>

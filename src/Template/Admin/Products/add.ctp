@@ -1,28 +1,27 @@
 <?php
-     $this->Html->addCrumb('Enquiry',['action' => 'index']);
-     $this->Html->addCrumb('Add Enquiry');
+     $this->Html->addCrumb('Products',['action' => 'index']);
+     $this->Html->addCrumb('Add Product');
 ?>
 <div class="row-fluid">
     <?= $this->Flash->render() ?>
     <div class="span12" id="content">
          <!-- validation -->
         <div class="row-fluid">
-             <!-- block -->
             <div class="block">
                 <div class="navbar navbar-inner block-header">
-                    <div class="muted pull-left"><?= __('Add Enquiry') ?></div>
+                    <div class="muted pull-left"><?= __('Add Product') ?></div>
                 </div>
                 <div class="block-content collapse in">
                     <div class="span12">
-                        <!-- BEGIN FORM-->
-                        <?= $this->Form->create($enquiry,['id'=>'form_sample_1','class'=>'form-horizontal form-validation']) ?>
+        <!-- BEGIN FORM-->
+                    <?= $this->Form->create($product,['id'=>'form_sample_1','class'=>'form-horizontal form-validation','type'=>'file']) ?>
                         <fieldset>
                             <div class="alert alert-error hide">
                                 <button class="close" data-dismiss="alert"></button>
                                 You have some form errors. Please check below.
                             </div>
                             <div class="control-group">
-                                <label class="control-label" for="name">Name<span class="required">*</span></label>
+                                <label class="control-label" for="name"><?=__('name')?><span class="required">*</span></label>
                                 <div class="controls">
                                 <?php
                                     echo $this->Form->input('name',['class'=>'span6 m-wrap','required'=>true,'label'=>false]);
@@ -30,29 +29,21 @@
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label" for="phone_no">Phone No<span class="required">*</span></label>
+                                <label class="control-label" for="description"><?=__('Description')?><span class="required">*</span></label>
                                 <div class="controls">
                                     <?php
-                                       echo $this->Form->input('phone_no',['class'=>'span6 m-wrap','required'=>true,'label'=>false,'number'=>true]);
-                                    ?> 
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label" for="email">Email<span class="required">*</span></label>
-                                <div class="controls">
-                                    <?php
-                                       echo $this->Form->input('email',['class'=>'span6 m-wrap','required'=>true,'label'=>false,'email'=>true]);
-                                    ?> 
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label" for="query">Query<span class="required">*</span></label>
-                                <div class="controls">
-                                    <?php
-                                       echo $this->Form->input('query',['class'=>'span6 m-wrap','required'=>true,'label'=>false,'data-required'=>1]);
+                                    echo $this->Form->input('description',['class'=>'span6 m-wrap','required'=>true,'label'=>false,'data-required'=>1]);                    
                                     ?>                                   
                                 </div>
-                            </div> 
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="dp"><?=__('Profile Pic')?><span class="required">*</span></label>
+                                <div class="controls">
+                                    <?php
+                                    echo $this->Form->input('dp',['type'=>'file','class'=>'input-file uniform_on','required'=>true,'label'=>false,'data-required'=>1]);                    
+                                    ?>                                   
+                                </div>
+                            </div>                      
                             <div class="form-actions">
                             <?= $this->Form->button(__('Submit'),['class'=>'btn btn-primary']) ?>
                             <?= $this->Form->button(__('Reset'),['type'=>'reset','class'=>'btn']) ?>

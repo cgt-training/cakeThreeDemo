@@ -71,6 +71,10 @@ class AppController extends Controller
                 ]
 
             ],
+            'storage' => [
+                'className' => 'Session',
+                'key' => 'Auth.Admin',              
+            ],
             
             'authorize' => ['Controller'],
             
@@ -89,8 +93,14 @@ class AppController extends Controller
                        'authenticate'=>[
                     'Form'=>[
                         'fields'=>['username'=>'username','password'=>'password']
-                    ]
-                ]
+                    ],
+                ],
+            'storage' => [
+                'className' => 'Session',
+                'key' => 'Auth.User',              
+            ],
+            
+            'authorize' => ['Controller'],
             ]);
 
         }
@@ -146,6 +156,7 @@ class AppController extends Controller
           $this->set('UsersCount', TableRegistry::get('Users')->find('all')->count());   
           $this->set('ArticlesCount', TableRegistry::get('articles')->find('all')->count());   
           $this->set('EnquiryCount', TableRegistry::get('enquiry')->find('all')->count());   
+          $this->set('ProductsCount', TableRegistry::get('products')->find('all')->count());   
        
     }
 

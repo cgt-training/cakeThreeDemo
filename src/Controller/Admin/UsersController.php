@@ -80,7 +80,7 @@ class UsersController extends AppController
     public function logout()
     {
         //$this->Cookie->delete('UserNew');
-        $this->request->Session()->delete('Auth.User');
+        $this->request->Session()->delete('Auth.Admin');
         $this->Flash->error("Logout successful");     
         return $this->redirect(['controller'=>'users','action' => 'login']);
     }

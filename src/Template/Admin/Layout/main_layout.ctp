@@ -7,12 +7,25 @@
 <?php echo $this->element('main_header');?>
         <div class="container-fluid" >
             <div class="row-fluid">
-                <div class="span3" id="sidebar">
+                <div class="span3" id="sidebar">                
                 <?php echo $this->element('main_sidebar');?>
                 </div>
                 
                 <!--/span-->
                 <div class="span9" id="content">
+                <div class="row-fluid">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <ul class="breadcrumb">
+                            <i class="icon-chevron-right show-sidebar" style="display:none;"><a href='#' title="Show Sidebar" rel='tooltip'>&nbsp;</a></i>
+                            <li>
+                                <?php echo $this->Html->getCrumbs(' > ',  [ 'text' => __('<i class="icon-home"></i> Dashboard'), 'url' => ['controller'=>'dashboards','action' => 'display'],  'escape' => false,'class'=>'AjaxLink']);?>   
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+</div>
+                
                 <?=$this->fetch('content');?>
                 </div>
             </div>

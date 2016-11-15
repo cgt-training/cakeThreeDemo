@@ -1,3 +1,7 @@
+<?php
+     $this->Html->addCrumb('Articles',['action' => 'index']);
+     $this->Html->addCrumb('View Article');
+?>
 <div class="row-fluid">
     <div class="span12" id="content">
         <div class="row-fluid">
