@@ -1,90 +1,154 @@
-	<div class="container-fluid back">
-		<nav class="navbar navbar-inverse">
-		  <div class="container-fluid">
-		    <div class="navbar-header">
-		      <a class="navbar-brand" href="#">WebSiteName</a>
+	<div class="row back">
+		
+		<nav class="navbar navbar-inverse  ">
+		  	<div class="container-fluid">
+		    	<div class="navbar-header">
+			      	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+			   	    </button>
+		     <a class="navbar-brand" href="#">WebSiteName</a>
 		    </div>
-		    <ul class="nav navbar-nav">
-		      <li class="active"><li><?php echo $this->Html->link(
-    'Posts',
-    ['controller' => 'Publishs', 'action' => 'index'],['class'=>'aja']
-); ?></li></li>
-		      <li class="aja"><?php echo $this->Html->link(
-    'Users',
-    ['controller' => 'Users', 'action' => 'index'],['class'=>'aja']
-); ?></li>
-	<li class="aja"><?php echo $this->Html->link('Products',['controller' => 'Products', 'action' => 'index'],['class'=>'aja']);?></li>
-			
-		    </ul>
-		    <ul class="nav navbar-nav navbar-right">	
-		      	<li>
-		      		<?php
+		    <div class="collapse navbar-collapse" id="myNavbar">
+			    <ul class="nav navbar-nav">
+								   
 
-		      			if(!$this->request->session()->read('Auth.User.username')) 
-		      			echo $this->Html->link('Register',['controller' => 'Users', 'action' => 'add']);
-					?>
-				</li>
-		      	<li>
-		      		<?php
-		      			if(!$this->request->session()->read('Auth.User.username'))
-		      			{
-			   	       		echo $this->Html->link('Login',['controller' => 'Users', 'action' => 'login']); 
-			   	       	}
-			   	       	else
-			   	       	{
-			   	       		echo $this->Html->link('Logout',['controller' => 'Users', 'action' => 'logout']); 
-			   	       	}
-		    		?>
-		    	</li>
-		    </ul>
+				</ul>
+				    <ul class="nav navbar-nav navbar-right">
+				      	<li>
+				 			<?php 
+				 				echo $this->Html->link('Blog',
+				 					['controller' => 'BlogPosts', 
+				 					'action' =>'index']
+				 				); 
+				 			?>
+				 		</li>
+				 		<li>
+				 			<?php 
+				 				echo $this->Html->link('Articles',
+				 					['controller' => 'Articles', 
+				 					'action' =>'index']
+				 				); 
+				 			?>
+				 		</li>
+				 		<li>
+				 			<?php 
+				 				echo $this->Html->link('Enquiry',
+				 					['controller' => 'Enquiry', 
+				 					'action' =>'index']
+				 				); 
+				 			?>
+				 		</li>		   
+				 		<li>
+				 			<?php 
+				 				echo $this->Html->link('Products',
+				 					['controller' => 'Products', 
+				 					'action' =>'index']
+				 				); 
+				 			?>
+				 		</li>
+				 		<li>
+				 			<?php 
+				 				echo $this->Html->link('Users',
+				 					['controller' => 'Users', 
+				 					'action' =>'index']
+				 				); 
+				 			?>
+				 		</li>
+				 		<li>
+				 			<?php 
+				 				echo $this->Html->link('Comments',
+				 					['controller' => 'Comment', 
+				 					'action' =>'index']
+				 				); 
+				 			?>
+				 		</li>
+				 		<li>
+				 			<?php 
+				 				if(!$this->request->session()->read('Auth.User.username'))
+				 				{
+				 					// $this->Html->link(__('<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>'), ['action' => 'view'],['escape'=>false,'title'=>'View','class'=>'AjaxLink']);
+
+					 					echo $this->Html->link('Register',
+				 						['controller' => 'Users', 
+				 						'action' =>'add']
+				 					); 
+				 				}
+				 			?>
+				 		</li>
+				 		<li>
+				 			<?php 
+				 				if($this->request->session()->read('Auth.User.username'))
+				 				{
+				 					echo $this->Html->link('Logout',
+				 						['controller' => 'Users', 
+				 						'action' =>'logout']
+				 					); 
+				 				}
+
+				 				else
+				 				{							
+				 					echo $this->Html->link('Login',
+				 						['controller' => 'Users', 
+				 						'action' =>'Login']
+				 					); 
+				 				}
+				 			?>
+				 		</li>
+				    </ul>
+			    
+		    </div>
 		  </div>
 		</nav>
 
 		<div class="row">
-			<h1 style="color:white; font-size: 80px" align="center">Necesitas Clases</h1>
-			<h3 style="color:white; font-size:30px" align="center">Busta.Contata.Aprnde</h3>
+			<div class="col-md-12">
+				<h1 style="color:white; font-size: 5.9vw" align="center">Necesitas Clases</h1>
+				<h3 style="color:white; font-size:3vw" align="center">Busta.Contata.Aprnde</h3>
+			</div>
 		</div>
 
 		<div class="row" style="margin-top: 2%;">
-			<div class="col-md-4">
+			<div class="col-md-4 col-xs-4">
 				<div class="circle" id="div"></div>
-				<h3 style="color:white; font-size:30px" align="center">Tutor Academy</h3>
+				<h3 style="color:white; font-size:3vw" align="center">Tutor Academy</h3>
 
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-4 col-xs-4 ">
 
-							<div class="circle" id="div1"></div>
+							<div class="circle" style="text-align: center;" id="div1"></div>
 	
-				<h3 style="color:white; font-size:30px" align="center">Tutor Academy</h3>
+				<h3 style="color:white; font-size:3vw" align="center">Tutor Academy</h3>
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-4 col-xs-4">
 					<div class="circle" id="div2"></div>
 			
-				<h3 style="color:white; font-size:30px" align="center">Tutor Academy</h3>
+				<h3 style="color:white; font-size:3vw" align="center">Tutor Academy</h3>
 			</div>
 		</div>
 
 		<div class="row" id="h1">
 			
-			<div class="col-md-push-1 col-md-3">
+			<div class="col-md-push-1 col-md-3 col-xs-5 col-xs-push-1">
 			<input type="text" class="form-control" id="exampleInputName2" placeholder="Enter Keyword   Menu">
 
 			</div>
 
-			<div class="col-md-2 col-md-push-1">
+			<div class="col-md-2 col-md-push-1 col-xs-5 col-xs-push-1">
 				<div class="dropdown">
 				   			<input type="text" class="form-control" id="exampleInputName2" placeholder="State">
 
 				 </div>
 			</div>
-			<div class="col-md-2 col-md-push-1">
+			<div class="col-md-2 col-md-push-1 col-xs-5 col-xs-push-1 txtbox">
 				<div class="dropdown">
 				   			<input type="text" class="form-control" id="exampleInputName2" placeholder="Location">
 
 				 </div>
 			</div>
 
-			<div class="col-md-2 col-md-push-1">
+			<div class="col-md-2 col-md-push-1 col-xs-5 col-xs-push-1 txtbox">
 				<div class="dropdown">
 <button type="button" class="btn btn-warning" style="width: 100%;">Submit</button>
 
@@ -95,25 +159,25 @@
 
 		<div class="row" id="h2">
 			
-			<div class="col-md-push-1 col-md-3">
+			<div class="col-md-push-1 col-md-3 col-xs-5 col-xs-push-1">
 			<input type="text" class="form-control" id="exampleInputName2" placeholder="Enter Keyword  Menu 1">
 
 			</div>
 
-			<div class="col-md-2 col-md-push-1">
+			<div class="col-md-push-1 col-md-2 col-xs-5 col-xs-push-1">
 				<div class="dropdown">
 				   			<input type="text" class="form-control" id="exampleInputName2" placeholder="State">
 
 				 </div>
 			</div>
-			<div class="col-md-2 col-md-push-1">
+			<div class="col-md-push-1 col-md-2 col-xs-5 col-xs-push-1 txtbox">
 				<div class="dropdown">
 				   			<input type="text" class="form-control" id="exampleInputName2" placeholder="Location">
 
 				 </div>
 			</div>
 
-			<div class="col-md-2 col-md-push-1">
+			<div class="col-md-push-1 col-md-2 col-xs-5 col-xs-push-1 txtbox">
 				<div class="dropdown">
 <button type="button" class="btn btn-warning" style="width: 100%;">Submit</button>
 
@@ -123,25 +187,25 @@
 
 		<div class="row" id="h3">
 			
-			<div class="col-md-push-1 col-md-3">
+			<div class="col-md-push-1 col-md-3 col-xs-5 col-xs-push-1">
 			<input type="text" class="form-control" id="exampleInputName2" placeholder="Enter Keyword   Menu 2">
 
 			</div>
 
-			<div class="col-md-2 col-md-push-1">
+			<div class="col-md-push-1 col-md-2 col-xs-5 col-xs-push-1">
 				<div class="dropdown">
 				   			<input type="text" class="form-control" id="exampleInputName2" placeholder="State">
 
 				 </div>
 			</div>
-			<div class="col-md-2 col-md-push-1">
+			<div class="col-md-push-1 col-md-2 col-xs-5 col-xs-push-1 txtbox">
 				<div class="dropdown">
 				   			<input type="text" class="form-control" id="exampleInputName2" placeholder="Location">
 
 				 </div>
 			</div>
 
-			<div class="col-md-2 col-md-push-1">
+			<div class="col-md-push-1 col-md-3 col-xs-5 col-xs-push-1 txtbox">
 				<div class="dropdown">
 <button type="button" class="btn btn-warning" style="width: 100%;">Submit</button>
 
@@ -216,7 +280,7 @@
 		    });
 		});
 	</script>
-	<script type="text/javascript">
+<!-- 	<script type="text/javascript">
     $(document).ready(function() {
     $('.aja').click(function() {
        // alert(this.href);//return false;
@@ -238,4 +302,4 @@
         });
         //.change();
     });
-      </script>
+      </script> -->

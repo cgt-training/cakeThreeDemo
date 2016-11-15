@@ -16,10 +16,15 @@ class BlogPostsController extends AppController
      *
      * @return \Cake\Network\Response|null
      */
+    public $components = ['Paginator'];
+     public $paginate = [
+         'limit' => 5,
+      
+     ];
      public function initialize()
     {
         parent::initialize();
-        $this->viewBuilder()->Layout('layoutSecond');
+        // $this->viewBuilder()->Layout('layoutSecond');
     }
     public function index()
     {
@@ -77,6 +82,7 @@ class BlogPostsController extends AppController
      */
     public function edit($id = null)
     {
+     
         $blogPost = $this->BlogPosts->get($id, [
             'contain' => []
         ]);

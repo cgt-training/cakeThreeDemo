@@ -11,7 +11,7 @@
                 echo $this->Form->input('image',['class'=>'form form-control']);
             ?>
         </fieldset>
-        <?= $this->Form->button(__('Submit'),array('class'=>'btn btn-primary left ','style'=>'margin-top:2%;')) ?>
+        <?= $this->Form->button(__('Submit'),array('class'=>'btn btn-primary left col-md-2 col-md-push-0 col-xs-4 col-xs-push-4    ','style'=>'margin-top:2%;')) ?>
         <?= $this->Form->end() ?>
     </div>
 </div>

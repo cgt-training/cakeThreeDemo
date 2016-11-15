@@ -90,18 +90,17 @@ class AppController extends Controller
                     ],
                     'logoutRedirect' => [
                         'controller' => 'Users',
-                        'action' => 'login',
-                        'home'
+                        'action' => 'login'
                     ],
                        'authenticate'=>[
                     'Form'=>[
                         'fields'=>['username'=>'username','password'=>'password']
                     ],
                 ],
-            'storage' => [
-                'className' => 'Session',
+             'storage' => [
+                 'className' => 'Session',
                 'key' => 'Auth.User',              
-            ],
+             ],
             
             'authorize' => ['Controller'],
             ]);
@@ -150,10 +149,22 @@ class AppController extends Controller
        // echo "hello";exit;
           $this->viewBuilder()->layout('main_layout'); 
         }
-        //pr($this->request);
+
          if(empty($this->request->prefix) && ($this->request->prefix !== 'admin'))
          {
-            $this->Auth->allow('index','view');
+            //$this->Auth->allow('index','view');
+        
+          $user=$this->request->session()->read('Auth.User');
+          if($user)
+          {
+          $this->Auth->allow(['index','view','edit','delete']);
+          }
+          else
+          {
+            $this->Auth->allow(['index','view']);
+
+          }
+            $this->viewBuilder()->Layout('layoutFirst');
            // $this->Auth->deny(); 
          }  
           $this->set('PostsCount', TableRegistry::get('BlogPosts')->find('all')->count());   

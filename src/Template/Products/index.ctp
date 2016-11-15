@@ -2,14 +2,14 @@
 
 <div class="">
     <nav class="col-md-2 col-xs-12" id="actions-sidebar" style="margin-top: 5%;">
-        <ul class="side-nav">
-            <li class="heading"><h4><?= __('Actions') ?></h4></li>
-            <li><h4><?= $this->Html->link(__('New Blog Post'), ['action' => 'add']) ?></h4></li>
+       <ul class="side-nav list-group">
+            <li class="heading list-group-item"><?= __('Actions') ?></li>
+            <li class="list-group-item"><?= $this->Html->link(__('New Products'), ['action' => 'add']) ?></li>
         </ul>
     </nav>
       
         <div class="table-responsive col-md-10 col-xs-12">    
-                <h3><?= __('Blog Posts') ?></h3>
+                <h3><?= __('Products') ?></h3>
       
         <table class="table">
          <thead>

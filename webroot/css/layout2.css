@@ -12,7 +12,23 @@ body{
 
 }
 
+ul>li
+{
+	margin-bottom: 1%;
+}
 
+    table
+    {
+        width: 100%;
+    }
+    th 
+    {
+        padding:10px;
+    }
+    td
+    {
+        padding:10px;
+    }
 th, td {
 	min-width: 200px;
 }
@@ -98,4 +114,10 @@ th, td {
 	background-color: #333;
 	height: 200px;
 
+}
+.footer
+{
+	height: 100px;
+	width: 100%;
+	background-color: #333;
 }

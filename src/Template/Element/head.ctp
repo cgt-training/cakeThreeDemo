@@ -2,8 +2,6 @@
 
   	echo $this->Html->charset();
 
-    echo $this->Html->css('layout1.css');
-    echo $this->Html->css('layout2.css');
 
     echo $this->Html->css('frontbootstrap.min.css');
     // echo $this->Html->css('base.css');

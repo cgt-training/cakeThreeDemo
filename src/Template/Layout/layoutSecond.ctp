@@ -2,7 +2,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <!-- <?echo $this->Html->css('layout2.css'); ?> -->
     <?= $this->element('head') ?>
+
 </head>
 <body class="row">
     <div class="col-md-12 col-xs-12">

@@ -9,6 +9,10 @@ th td
 {
 	min-width: 200px;
 }
+.view th td
+{
+	padding: 20px;
+}
 .back
 {
 	background-image: url("../img/Layer 5.jpg");
