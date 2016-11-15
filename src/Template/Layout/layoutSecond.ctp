@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 
-    <!-- <?echo $this->Html->css('layout2.css'); ?> -->
+    <?php echo $this->Html->css('layout2.css'); ?>
     <?= $this->element('head') ?>
 
 </head>

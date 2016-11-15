@@ -157,14 +157,14 @@ class AppController extends Controller
           $user=$this->request->session()->read('Auth.User');
           if($user)
           {
-          $this->Auth->allow(['index','view','edit','delete']);
+          $this->Auth->allow(['index','view','edit','delete','add']);
           }
           else
           {
             $this->Auth->allow(['index','view']);
 
           }
-            $this->viewBuilder()->Layout('layoutFirst');
+            $this->viewBuilder()->Layout('layoutSecond');
            // $this->Auth->deny(); 
          }  
           $this->set('PostsCount', TableRegistry::get('BlogPosts')->find('all')->count());   
