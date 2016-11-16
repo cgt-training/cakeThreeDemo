@@ -18,7 +18,7 @@
 				    <ul class="nav navbar-nav navbar-right">
 				      	<li>
 				 			<?php 
-				 				echo $this->Html->link('Blog',
+				 				echo $this->Html->link(__('Blog'),
 				 					['controller' => 'BlogPosts', 
 				 					'action' =>'index']
 				 				); 
@@ -26,7 +26,7 @@
 				 		</li>
 				 		<li>
 				 			<?php 
-				 				echo $this->Html->link('Articles',
+				 				echo $this->Html->link(__('Articles'),
 				 					['controller' => 'Articles', 
 				 					'action' =>'index']
 				 				); 
@@ -34,7 +34,7 @@
 				 		</li>
 				 		<li>
 				 			<?php 
-				 				echo $this->Html->link('Enquiry',
+				 				echo $this->Html->link(__('Enquiry'),
 				 					['controller' => 'Enquiry', 
 				 					'action' =>'index']
 				 				); 
@@ -42,7 +42,7 @@
 				 		</li>		   
 				 		<li>
 				 			<?php 
-				 				echo $this->Html->link('Products',
+				 				echo $this->Html->link(__('Products'),
 				 					['controller' => 'Products', 
 				 					'action' =>'index']
 				 				); 
@@ -50,7 +50,7 @@
 				 		</li>
 				 		<li>
 				 			<?php 
-				 				echo $this->Html->link('Users',
+				 				echo $this->Html->link(__('Users'),
 				 					['controller' => 'Users', 
 				 					'action' =>'index']
 				 				); 
@@ -58,7 +58,7 @@
 				 		</li>
 				 		<li>
 				 			<?php 
-				 				echo $this->Html->link('Comments',
+				 				echo $this->Html->link(__('Comments'),
 				 					['controller' => 'Comment', 
 				 					'action' =>'index']
 				 				); 
@@ -70,7 +70,7 @@
 				 				{
 				 					// $this->Html->link(__('<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>'), ['action' => 'view'],['escape'=>false,'title'=>'View','class'=>'AjaxLink']);
 
-					 					echo $this->Html->link('Register',
+					 					echo $this->Html->link(__('Register'),
 				 						['controller' => 'Users', 
 				 						'action' =>'add']
 				 					); 
@@ -81,7 +81,7 @@
 				 			<?php 
 				 				if($this->request->session()->read('Auth.User.username'))
 				 				{
-				 					echo $this->Html->link('Logout',
+				 					echo $this->Html->link(__('Logout'),
 				 						['controller' => 'Users', 
 				 						'action' =>'logout']
 				 					); 
@@ -89,7 +89,7 @@
 
 				 				else
 				 				{							
-				 					echo $this->Html->link('Login',
+				 					echo $this->Html->link(__('Login'),
 				 						['controller' => 'Users', 
 				 						'action' =>'Login']
 				 					); 

@@ -1,3 +1,6 @@
+<?php
+     $this->Html->addCrumb(__('Enquiry'));
+?>
 <div class="row-fluid">
 <?= $this->Flash->render() ?>
 </div>

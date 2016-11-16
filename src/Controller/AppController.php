@@ -17,6 +17,7 @@ namespace App\Controller;
 use Cake\Controller\Controller;
 use Cake\Event\Event;
 use Cake\ORM\TableRegistry;
+use Cake\ORM\Table;
 use Cake\I18n\I18n;
 
 /**
@@ -143,7 +144,15 @@ class AppController extends Controller
     }
     public function beforeFilter(Event $event)
     {
-      $DefaultLang = 'en_HN';
+      $Settings = TableRegistry::get('Settings')->find()->first();
+     //pr($Settings);
+      $DefaultLang = $Settings['language'];
+      if(!empty($Settings['layout_name'])){
+            $DefaultLayout = $Settings['layout_name'];
+      }
+    else {
+        $DefaultLayout = "layoutFirst";
+      }
       I18n::locale($DefaultLang);
       if(isset($this->request->prefix) && ($this->request->prefix == 'admin')){
        // echo "hello";exit;
@@ -164,7 +173,7 @@ class AppController extends Controller
             $this->Auth->allow(['index','view']);
 
           }
-            $this->viewBuilder()->Layout('layoutSecond');
+            $this->viewBuilder()->Layout($DefaultLayout);
            // $this->Auth->deny(); 
          }  
           $this->set('PostsCount', TableRegistry::get('BlogPosts')->find('all')->count());   

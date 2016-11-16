@@ -1,8 +1,9 @@
+<?php
+     $this->Html->addCrumb(__('Users'));
+?>
 <div class="row-fluid">
 <?= $this->Flash->render() ?>
 </div>
-
-
      <div class="row-fluid">
         <div class="block">
             <div class="navbar navbar-inner block-header">

@@ -32,11 +32,11 @@
                     </li>
                 </ul>
                 <ul class="nav">
-                    <li class="active">
+                    <li>
                     <?php echo $this->Html->link(__("Dashboard"),["controller"=>"dashboards","action"=>"display"]);?>
                     </li>
                     <li>
-                    <?php echo $this->Html->link(__("Settings"),"#");?>
+                    <?php echo $this->Html->link(__("Settings"),["controller"=>"settings","action"=>"index"]);?>
                    </li>
                     <li class="dropdown">
                         <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><?= __("Users");?> <i class="caret"></i>

@@ -451,7 +451,7 @@ msgstr ""
 
 #: Template/Admin/Element/main_header.ctp:105
 msgid "change_password"
-msgstr ""
+msgstr "पासवर्ड बदलें"
 
 #: Template/Admin/Enquiry/add.ctp:13
 #: Template/Enquiry/add.ctp:10;50
@@ -595,7 +595,7 @@ msgstr ""
 
 #: Template/Admin/Users/change_password.ctp:12
 msgid "Change Password"
-msgstr ""
+msgstr "पासवर्ड बदलें"
 
 #: Template/Admin/Users/change_password.ctp:28
 msgid "Old password"
@@ -1074,3 +1074,7 @@ msgstr "सेटिंग्स"
 #: Template/Admin/Element/main_header.ctp:8
 msgid "Admin Panel"
 msgstr "प्रशासनिक समिति"
+
+#: Template/Admin/Element/main_header.ctp:8
+msgid "Control panel"
+msgstr "कंट्रोल पैनल"			
