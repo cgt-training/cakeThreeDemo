@@ -8,6 +8,13 @@
         <div class="block">
             <div class="navbar navbar-inner block-header">
                 <div class="muted pull-left"><?= __('Products') ?></div>
+                <div class="pull-right">
+                <?php
+                  echo $this->Html->link(' <i class="icon-refresh"></i>',
+                    ["action"=>'index'],
+                    ['escape'=>false,'class'=>'ajaxRefresh','title'=>__("Refresh")]);
+                ?>    
+               </div>
             </div>
             <div class="block-content collapse in">
                 <div class="span12">
@@ -33,6 +40,16 @@
                     <th class="text-center" class="actions"><?= __('Actions') ?></th>
                 </tr>
               </thead>
+              <tfoot>
+                <tr>
+                   <th class="text-center"><?= __('#') ?></th>
+                    <th class="text-center"><?= __('name') ?></th>                    
+                    <th class="text-center"><?= __('created') ?></th>
+                    <th class="text-center"><?= __('modified') ?></th>
+                    <th class="text-center"><?= __('Dp') ?></th>
+                    <th class="text-center" class="actions"><?= __('Actions') ?></th>
+                </tr>
+              </tfoot>
               <tbody>
                 <?php $S_no=1;   
             foreach ($products as $product): ?>

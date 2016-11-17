@@ -26,7 +26,8 @@
                 </div>
 </div>
                 
-                <?=$this->fetch('content');?>
+               <div id="MainContent"><?=$this->fetch('content');?></div>
+                
                 </div>
             </div>
          </div> 

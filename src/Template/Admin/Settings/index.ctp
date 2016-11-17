@@ -8,6 +8,13 @@
     <div class="block">
         <div class="navbar navbar-inner block-header">
             <div class="muted pull-left"><?= __('Settings') ?></div>
+            <div class="pull-right">
+                <?php
+                  echo $this->Html->link(' <i class="icon-refresh"></i>',
+                    ["action"=>'index'],
+                    ['escape'=>false,'class'=>'ajaxRefresh','title'=>__("Refresh")]);
+                ?>    
+            </div>
         </div>
         <div class="block-content collapse in">
             <div class="span12">

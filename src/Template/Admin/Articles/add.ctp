@@ -24,7 +24,7 @@
                     <label class="control-label" for="title"><?=__("Title");?><span class="required">*</span></label>
                     <div class="controls">
                     <?php
-                        echo $this->Form->input('title',['class'=>'span6 m-wrap','required'=>true,'label'=>false,'digits'=>true]);
+                        echo $this->Form->input('title',['class'=>'span6 m-wrap','required'=>true,'label'=>false]);
                     ?>                               
                     </div>
                 </div>

@@ -54,7 +54,7 @@ class ProductsController extends AppController
             $file = $this->request->data['dp']; //put the data into a var for easy use
             $ext = substr(strtolower(strrchr($file['name'], '.')), 1); //get the extension
             $arr_ext = array('jpg', 'jpeg', 'gif','png'); //set allowed extensions
-            $setNewFileName = time() . "_" . rand(000000, 999999).$ext;
+            $setNewFileName = time() . "_" . rand(000000, 999999).".".$ext;
             if(in_array($ext, $arr_ext))
             {
                 move_uploaded_file($file['tmp_name'], WWW_ROOT . 'img/uploads/' . $setNewFileName);
@@ -93,7 +93,7 @@ class ProductsController extends AppController
 
             $ext = substr(strtolower(strrchr($file['name'], '.')), 1); //get the extension
             $arr_ext = array('jpg', 'jpeg', 'gif','png'); //set allowed extensions
-            $setNewFileName = time() . "_" . rand(000000, 999999).$ext;
+            $setNewFileName = time() . "_" . rand(000000, 999999).".".$ext;
             //only process if the extension is valid
             if(in_array($ext, $arr_ext))
             {

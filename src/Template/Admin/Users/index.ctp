@@ -8,6 +8,13 @@
         <div class="block">
             <div class="navbar navbar-inner block-header">
                 <div class="muted pull-left"><?= __('Users') ?></div>
+                <div class="pull-right">
+                <?php
+                  echo $this->Html->link(' <i class="icon-refresh"></i>',
+                    ["action"=>'index'],
+                    ['escape'=>false,'class'=>'ajaxRefresh','title'=>__("Refresh")]);
+                ?>    
+               </div>
             </div>
             <div class="block-content collapse in">
                 <div class="span12">
@@ -35,6 +42,18 @@
                     <th class="text-center" class="actions"><?= __('Actions') ?></th>
                 </tr>
               </thead>
+              <tfoot>
+                <tr>
+                   <th class="text-center"><?= __('#') ?></th>
+                    <th class="text-center"><?= __('username') ?></th>
+                    <!--class="text-center"ol"><?= $this->Paginator->sort('password') ?></th-->
+                    <th class="text-center"><?= __('role') ?></th>
+                    <th class="text-center"><?= __('image') ?></th>
+                    <!--class="text-center"ol"><?= $this->Paginator->sort('created') ?></th>
+                    <th class="text-center"><?= $this->Paginator->sort('modified') ?></th-->
+                    <th class="text-center" class="actions"><?= __('Actions') ?></th>
+                </tr>
+              </tfoot>
               <tbody>
                 <?php $S_no=1;   
             foreach ($users as $user): ?>
@@ -42,8 +61,9 @@
                 <td width="5%"><?= $S_no++;?></td>
                 <td><?= h($user->username) ?></td>               
                 <td><?= h($user->role) ?></td> 
-                <td class="text-center" style="height: 60px"><?
-                if(!empty($user->image)):
+                <td class="text-center" style="height: 60px">
+                <?
+                if(!empty($user->image) && file_exists(WWW_ROOT .$user->image)  ):
                 echo  $this->Html->image(h($user->image), ['alt' => 'CakePHP','class'=>'img-responsive center-block','width'=>'60px']);
                 endif; ?>
                </td>            

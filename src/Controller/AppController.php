@@ -156,7 +156,12 @@ class AppController extends Controller
       I18n::locale($DefaultLang);
       if(isset($this->request->prefix) && ($this->request->prefix == 'admin')){
        // echo "hello";exit;
-          $this->viewBuilder()->layout('main_layout'); 
+          if($this->request->isAjax()) {
+              $this->viewBuilder()->layout('ajax');
+          }
+          else{
+              $this->viewBuilder()->layout('main_layout'); 
+          }
         }
 
          if(empty($this->request->prefix) && ($this->request->prefix !== 'admin'))
