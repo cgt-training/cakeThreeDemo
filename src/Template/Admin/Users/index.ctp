@@ -7,14 +7,7 @@
      <div class="row-fluid">
         <div class="block">
             <div class="navbar navbar-inner block-header">
-                <div class="muted pull-left"><?= __('Users') ?></div>
-                <div class="pull-right">
-                <?php
-                  echo $this->Html->link(' <i class="icon-refresh"></i>',
-                    ["action"=>'index'],
-                    ['escape'=>false,'class'=>'ajaxRefresh','title'=>__("Refresh")]);
-                ?>    
-               </div>
+                <div class="muted pull-left"><?= __('Users') ?></div>                
             </div>
             <div class="block-content collapse in">
                 <div class="span12">
@@ -27,6 +20,13 @@
                     ['escape'=>false])
                   ?>                    
               </div>
+              <div class="pull-right">
+                <?php
+                  echo $this->Html->link($this->Form->button(__('Reload').' <i class="icon-refresh icon-white"></i>',['type'=>'button','class'=>'btn btn-inverse']),
+                    ["action"=>'index'],
+                    ['escape'=>false,'class'=>'ajaxRefresh','title'=>__("Reload")]);
+                ?>    
+            </div>
            </div>
               <div class="table-responsive">           
               <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered TableDataClass">
@@ -61,10 +61,10 @@
                 <td width="5%"><?= $S_no++;?></td>
                 <td><?= h($user->username) ?></td>               
                 <td><?= h($user->role) ?></td> 
-                <td class="text-center" style="height: 60px">
+                <td class="text-center" style="height: 40px">
                 <?
-                if(!empty($user->image) && file_exists(WWW_ROOT .$user->image)  ):
-                echo  $this->Html->image(h($user->image), ['alt' => 'CakePHP','class'=>'img-responsive center-block','width'=>'60px']);
+                if(!empty($user->image)):
+                echo  $this->Html->image(h($user->image), ['alt' => 'CakePHP','class'=>'img-responsive center-block','width'=>'40px']);
                 endif; ?>
                </td>            
                 <td class="actions text-center">                   

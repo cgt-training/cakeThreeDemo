@@ -36,7 +36,7 @@
                     <?php echo $this->Html->link(__("Dashboard"),["controller"=>"dashboards","action"=>"display"]);?>
                     </li>
                     <li>
-                    <?php echo $this->Html->link(__("Settings"),["controller"=>"settings","action"=>"index"]);?>
+                    <?php echo $this->Html->link(__("Settings"),["controller"=>"settings","action"=>"edit",1]);?>
                    </li>
                     <li class="dropdown">
                         <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><?= __("Users");?> <i class="caret"></i>

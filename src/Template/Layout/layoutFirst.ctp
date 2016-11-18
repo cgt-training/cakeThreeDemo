@@ -1,11 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?= $this->element('head') ?>
+    <?= $this->element('headFirst') ?>
 
-    <?php echo $this->Html->css('layout1.css'); ?>
-    <?php echo $this->Html->css('responsive1.css'); ?>
 
 </head>
 <body>
@@ -16,11 +13,28 @@
             </div>
         <!-- Page Content -->
             <?= $this->Flash->render() ?>
-           <div class="col-md-push-1 col-md-11 col-xs-12 col-xs-push-0">
+           
+            <?php
+        if (!empty($this->request->session()->read('Auth.User.role')) && $this->request->session()->read('Auth.User.role') === 'author'):
+        ?>
+
+        <div class="col-md-9 col-xs-12 ">
                 <?= $this->fetch('content') ?> 
          
             </div> 
-               
+        <div class="col-md-3" id="rightDiv"> 
+            <?= $this->element('sidepanel') ;?>  
+        </div>
+        <?php
+        else :
+        ?>
+        <div class="col-md-push-1 col-md-11 col-xs-12 col-xs-push-0">
+                <?= $this->fetch('content') ?> 
+         
+            </div> 
+        <?php
+        endif;
+        ?>   
         
         <div class="col-md-12 col-xs-12">
             <?= $this->element('layoutFirstFooter') ?>    

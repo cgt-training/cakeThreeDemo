@@ -90,8 +90,8 @@ class AppController extends Controller
                         'action' => 'index'
                     ],
                     'logoutRedirect' => [
-                        'controller' => 'Users',
-                        'action' => 'login'
+                        'controller' => 'BlogPosts',
+                        'action' => 'index'
                     ],
                        'authenticate'=>[
                     'Form'=>[

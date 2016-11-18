@@ -27,8 +27,14 @@ class BlogPostsController extends AppController
     }
     public function index()
     {
-        $blogPosts = $this->paginate($this->BlogPosts);
-
+        $blogPosts = $this->BlogPosts->find("all");
+       // $blogPosts->hydrate(false);
+       /* pr($blogPosts->toArray());
+        $Arr['draw'] = 10;
+        $Arr['recordsTotal'] = 12;
+        $Arr['recordsFiltered'] = 15;
+        $Arr['data'] = $blogPosts->toArray();
+        debug(json_encode($Arr));*/
         $this->set(compact('blogPosts'));
         $this->set('_serialize', ['blogPosts']);
     }

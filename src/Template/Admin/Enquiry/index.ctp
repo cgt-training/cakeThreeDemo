@@ -7,14 +7,7 @@
 <div class="row-fluid">
     <div class="block">
         <div class="navbar navbar-inner block-header">
-            <div class="muted pull-left"><?= __('Enquiry') ?></div>
-            <div class="pull-right">
-                <?php
-                  echo $this->Html->link(' <i class="icon-refresh"></i>',
-                    ["action"=>'index'],
-                    ['escape'=>false,'class'=>'ajaxRefresh','title'=>__("Refresh")]);
-                ?>    
-            </div>
+            <div class="muted pull-left"><?= __('Enquiry') ?></div>            
         </div>
         <div class="block-content collapse in">
             <div class="span12">
@@ -26,6 +19,13 @@
                     ["action"=>'add'],
                     ['escape'=>false])
                   ?>                  
+                  </div>
+                  <div class="pull-right">
+                      <?php
+                        echo $this->Html->link($this->Form->button(__('Reload').' <i class="icon-refresh icon-white"></i>',['type'=>'button','class'=>'btn btn-inverse']),
+                          ["action"=>'index'],
+                          ['escape'=>false,'class'=>'ajaxRefresh','title'=>__("Reload")]);
+                      ?>    
                   </div>
                </div>  
                <div class="table-responsive">                       
