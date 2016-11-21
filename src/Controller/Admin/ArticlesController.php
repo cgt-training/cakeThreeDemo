@@ -19,7 +19,7 @@ class ArticlesController extends AppController
      public function initialize()
     {
         parent::initialize();
-
+        $this->loadComponent('DataTable');
         $this->loadComponent('Flash'); // Include the FlashComponent       
         $this->viewBuilder()->layout('main_layout');
         
@@ -32,7 +32,49 @@ class ArticlesController extends AppController
         $this->set(compact('articles'));
         $this->set('_serialize', ['articles']);
     }
+    public function indexAjax()
+    {
+        $this->autoRender = false;
+        $columns = array(
+          array('db'=>'id','dt'=>0),
+          array('db'=>'title','dt'=>1),        
+          array('db'=>'created','dt'=>2),
+          array('db'=>'modified','dt'=>3),
+          array('db'=>'id','dt'=>4)          
+        );
+        $limit = array();
+        //pr($this->request->query);
+        $request = $this->request->query;
+        $limit = $this->DataTable->limit( $request, $columns );
+        $order = $this->DataTable->order( $request, $columns );
+        $where = $this->DataTable->filter( $request, $columns);
+        $Select = ($this->DataTable->pluck($columns, 'db'));
+        $Articles = $this->Articles->find()
+        ->select($Select)
+        ->Where($where)
+        ->order($order)
+        ->limit(@$limit[1])
+        ->offset(@$limit[0])
+        ;
+        
+        $recordsFiltered = $this->Articles->find()->where($where)->count();
+        $recordsTotal = $this->Articles->find()->count();    
+        $draw1 = isset ( $request['draw'] ) ?
+                intval( $request['draw'] ) :
+                0;
 
+        $draw2 = $recordsTotal;
+        $draw3 = $recordsFiltered;     
+        $posts = $this->DataTable->data_output( $columns, $Articles->toArray() );
+        echo json_encode([
+                "draw"=>$draw1,
+                "recordsTotal"=>$draw2,
+                "recordsFiltered"=>$draw3,                
+                "data"=>$posts 
+            ]);
+         exit;
+
+    }
     /**
      * View method
      *

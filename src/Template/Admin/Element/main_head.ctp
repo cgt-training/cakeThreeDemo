@@ -42,9 +42,40 @@ $RequestController = $this->request->params['controller'];
                 if(title!='#' && title!='Actions')
                 $(this).html( '<input type="text" class="search" placeholder="Search '+title+'" />' );
             } );
-         
+          
             // DataTable
-            var table = $('.TableDataClass').DataTable();
+            var table = $('.TableDataClass').DataTable({
+                     "processing": true,
+                    "serverSide": true,
+                    "ajax": {
+                        "url": "<?php echo $this->Url->build(["action" => "indexAjax"]);?>"
+                        //"dataSrc": "jsonData"
+                    },
+                      "columnDefs": [
+                            {
+                                "targets": 0,
+                                 "searchable": false,
+                                "orderable": false
+                               
+                            },
+                            {
+                                "targets": -1,
+                                "searchable": false,
+                                "orderable": false,
+                               
+                            } ],
+                    "order": [[ 1, 'asc' ]],
+                    "fnDrawCallback":function(){
+                        table_rows = this.fnGetNodes();
+                        $.each(table_rows, function(index){
+                        PKeyId   = $("td:first", this).html();
+                        HtmltoLoad = '<?= $this->Html->link(__('<i class="icon-eye-open"></i>'), ['action' => 'view','---KeyId---'],['escape'=>false,'title'=>'View','class'=>'AjaxLink']) ?><?= $this->Html->link(__('<i class="icon-edit"></i>'), ['action' => 'edit','---KeyId---'],['escape'=>false,'title'=>'Edit','class'=>'AjaxLink']) ?><?= $this->Form->postLink(__('<i class="icon-remove"></i>'), ['action' => 'delete','---KeyId---'], 
+                                   ['confirm' => __('Are you sure you want to delete # {0}?','---KeyId---'),'escape'=>false,'title'=>'Delete','class'=>'DeleteAjaxLink']) ?>'.replace(/\---KeyId---/g, PKeyId);
+                        $("td:last", this).html(HtmltoLoad); 
+                        $("td:first", this).html(index+1);                       
+                        });
+                    }
+                });
          
             // Apply the search
             table.columns().every( function () {
@@ -57,7 +88,9 @@ $RequestController = $this->request->params['controller'];
                             .draw();
                     }
                 } );
-            } );
+            } );        
+
+
             }
         $(document).on('click', '.ajaxRefresh', function(){
         $.ajax({
@@ -75,14 +108,29 @@ $RequestController = $this->request->params['controller'];
     $(document).ready(function() {   
        FormValidation.init();
        DatatableLoad();
+       $('.DeleteAjaxLink').removeAttr('onclick');
     });
     $(function() {
         $(".datepicker").datepicker();
         $(".uniform_on").uniform();
         $(".chzn-select").chosen();           
     });
-
     $(function(){
+
+    
+
+    $(document).on('click', '.DeleteAjaxLink', function(e){
+//alert("fgdfg0");
+        e.preventDefault();
+        var form = $(this).prev();
+        var url = $(form).attr("action");
+        $(form).submit();      
+        return false;
+    });
+
+});
+
+   /** $(function(){
          if(RequestAction=='index'){
                   (function worker() {
                   //   alert("hello");
@@ -105,6 +153,6 @@ $RequestController = $this->request->params['controller'];
              {
                 //alert("not index");
              }
-    });
+    });**/  
     
 </script>

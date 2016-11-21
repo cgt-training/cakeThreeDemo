@@ -54,7 +54,7 @@
                     <th scope="col" class="actions"><?= __('Actions') ?></th>
                 </tr>
               </tfoot>
-              <tbody>
+              <!--tbody>
                 <?php foreach ($blogPosts as $blogPost): ?>
                 <tr>
                     <td><?= $this->Number->format($blogPost->id) ?></td>
@@ -71,7 +71,7 @@
                     </td>
                 </tr>
                 <?php endforeach; ?>
-               </tbody>
+               </tbody-->
                 </table>
             </div>
             </div>
