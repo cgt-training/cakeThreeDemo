@@ -22,6 +22,7 @@ class UsersController extends AppController
         parent::initialize();
 
         $this->loadComponent('Flash'); // Include the FlashComponent
+        $this->loadComponent('DataTable'); 
         $this->viewBuilder()->layout('main_layout');       
 
     }
@@ -33,7 +34,48 @@ class UsersController extends AppController
         // cause problems with normal functioning of AuthComponent.
         $this->Auth->allow(['logout']);
     }
-    
+        public function indexAjax()
+    {
+        $this->autoRender = false;
+        $columns = [
+          ['db'=>'id','dt'=>0],
+          ['db'=>'username','dt'=>1],        
+          ['db'=>'role','dt'=>2],         
+          ['db'=>'id','dt'=>3]
+        ];
+        $limit = array();
+        //pr($this->request->query);
+        $request = $this->request->query;
+        $limit = $this->DataTable->limit( $request, $columns );
+        $order = $this->DataTable->order( $request, $columns );
+        $where = $this->DataTable->filter( $request, $columns);
+        $Select = ($this->DataTable->pluck($columns, 'db'));
+        $users = $this->Users->find()
+        ->select($Select)
+        ->Where($where)
+        ->order($order)
+        ->limit(@$limit[1])
+        ->offset(@$limit[0])
+        ;
+        //debug($users);
+        $recordsFiltered = $this->Users->find()->where($where)->count();
+        $recordsTotal = $this->Users->find()->count();    
+        $draw1 = isset ( $request['draw'] ) ?
+                intval( $request['draw'] ) :
+                0;
+
+        $draw2 = $recordsTotal;
+        $draw3 = $recordsFiltered;     
+        $posts = $this->DataTable->data_output( $columns, $users->toArray() );
+        echo json_encode([
+                "draw"=>$draw1,
+                "recordsTotal"=>$draw2,
+                "recordsFiltered"=>$draw3,                
+                "data"=>$posts 
+            ]);
+         exit;
+
+    }
     public function login()
     {
         //pr($this->request->is);

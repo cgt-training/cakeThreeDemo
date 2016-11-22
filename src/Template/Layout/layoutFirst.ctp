@@ -15,7 +15,7 @@
             <?= $this->Flash->render() ?>
            
             <?php
-        if (!empty($this->request->session()->read('Auth.User.role')) && $this->request->session()->read('Auth.User.role') === 'author'):
+       /* if (!empty($this->request->session()->read('Auth.User.role')) && $this->request->session()->read('Auth.User.role') === 'author'):
         ?>
 
         <div class="col-md-9 col-xs-12 ">
@@ -26,14 +26,14 @@
             <?= $this->element('sidepanel') ;?>  
         </div>
         <?php
-        else :
+        else :*/
         ?>
         <div class="col-md-push-1 col-md-11 col-xs-12 col-xs-push-0">
                 <?= $this->fetch('content') ?> 
          
             </div> 
         <?php
-        endif;
+      //  endif;
         ?>   
         
         <div class="col-md-12 col-xs-12">

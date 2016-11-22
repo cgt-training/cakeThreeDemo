@@ -16,6 +16,11 @@ class ProductsController extends AppController
      *
      * @return \Cake\Network\Response|null
      */
+    public function initialize()
+    {
+        parent::initialize();       
+        $this->loadComponent('DataTable'); // Include the FlashComponent     
+    }
     public function index()
     {
         $products = $this->paginate($this->Products);
@@ -23,7 +28,57 @@ class ProductsController extends AppController
         $this->set(compact('products'));
         $this->set('_serialize', ['products']);
     }
+    public function indexAjax()
+    {
+        $this->autoRender = false;
+        $columns = [
+          ['db'=>'id','dt'=>0],
+          ['db'=>'name','dt'=>1],
+          ['db'=>'created','dt'=>2,
+              'formatter' => function( $d, $row ) 
+              {
+                return date( 'd-m-Y H:m:s', strtotime($d));
+              }],
+          ['db'=>'modified','dt'=>3,
+              'formatter' => function( $d, $row ) 
+              {
+                return date( 'd-m-Y H:m:s', strtotime($d));
+              }],
+          ['db'=>'id','dt'=>4]
+        ];
+        $limit = array();
+        //pr($this->request->query);
+        $request = $this->request->query;
+        $limit = $this->DataTable->limit( $request, $columns );
+        $order = $this->DataTable->order( $request, $columns );
+        $where = $this->DataTable->filter( $request, $columns);
+        $Select = ($this->DataTable->pluck($columns, 'db'));
+        $products = $this->Products->find()
+        ->select($Select)
+        ->Where($where)
+        ->order($order)
+        ->limit(@$limit[1])
+        ->offset(@$limit[0])
+        ;
+        //debug($products);
+        $recordsFiltered = $this->Products->find()->where($where)->count();
+        $recordsTotal = $this->Products->find()->count();    
+        $draw1 = isset ( $request['draw'] ) ?
+                intval( $request['draw'] ) :
+                0;
 
+        $draw2 = $recordsTotal;
+        $draw3 = $recordsFiltered;     
+        $posts = $this->DataTable->data_output( $columns, $products->toArray() );
+        echo json_encode([
+                "draw"=>$draw1,
+                "recordsTotal"=>$draw2,
+                "recordsFiltered"=>$draw3,                
+                "data"=>$posts 
+            ]);
+         exit;
+
+    }
     /**
      * View method
      *

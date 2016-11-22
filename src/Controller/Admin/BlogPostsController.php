@@ -28,76 +28,31 @@ class BlogPostsController extends AppController
     }
     public function index()
     {
-        $columns = array(
-          array('db'=>'name','dt'=>0),
-          array('db'=>'description','dt'=>1),
-          array('db'=>'post_no','dt'=>2),
-          array('db'=>'created','dt'=>3),
-          array('db'=>'modified','dt'=>4),
-          array('db'=>'flag','dt'=>5)
-        );
-        $limit = array();
-        $request = $_GET;
-        $limit = $this->DataTable->limit( $request, $columns );
-        $order = $this->DataTable->order( $request, $columns );
-        $where = $this->DataTable->filter( $request, $columns, $bindings );
-        
-        //pr($limit);
-
-//exit;
-       // echo $where;
-       // echo implode("', '", self::pluck($columns, 'db'));
-
-        $blogPosts = $this->BlogPosts->find()
-        ->where($where)
-        ->order($order)
-        ->limit(@$limit[1])
-        ->offset(@$limit[0])
-        ;
-         $blogPosts->hydrate(false);
-        $recordsFiltered = $this->BlogPosts->find()->where($where)->count();
-        $recordsTotal = $this->BlogPosts->find()->count();    
-        $draw1 = isset ( $request['draw'] ) ?
-                intval( $request['draw'] ) :
-                0;
-
-        $draw2 = $recordsTotal;
-        $draw3 = $recordsFiltered;     
-        $posts = $this->DataTable->data_output( $columns, $blogPosts->toArray() );
-        //pr($Arr['data']);
-        
-           // $JsonArr = (array) $jsonData;
-           
-       // $Json1 = json_decode($Json);
-//pr($Json1);
-       // $Arr1[] = $Arr;
-     // $this->set(compact('JsonArr'));
-     // $this->set('_serialize', ['JsonArr']);
-       //echo json_encode($Arr["demo"]);    
-        //pr(json_encode($blogPosts));
-       // $blogPosts->hydrate(false);
-       /* pr($blogPosts->toArray());
-        $Arr['draw'] = 10;
-        $Arr['recordsTotal'] = 12;
-        $Arr['recordsFiltered'] = 15;
-        $Arr['data'] = $blogPosts->toArray();
-        debug(json_encode($Arr));*/
-        //$this->set(compact('blogPosts'));
-        //$this->set('_serialize', ['blogPosts']);
+        $blogPosts = $this->paginate($this->BlogPosts); 
+   
+        $this->set(compact('blogPosts'));
+        $this->set('_serialize', ['blogPosts']);
     }
-
       public function indexAjax()
     {
         $this->autoRender = false;
-        $columns = array(
-          array('db'=>'id','dt'=>0),
-          array('db'=>'name','dt'=>1),        
-          array('db'=>'post_no','dt'=>2),
-          array('db'=>'created','dt'=>3),
-          array('db'=>'modified','dt'=>4),
-          array('db'=>'flag','dt'=>5),
-          array('db'=>'id','dt'=>6)
-        );
+        $columns = [
+          ['db'=>'id','dt'=>0],
+          ['db'=>'name','dt'=>1],        
+          ['db'=>'post_no','dt'=>2],
+          ['db'=>'created','dt'=>3,
+              'formatter' => function( $d, $row ) 
+              {
+                return date( 'd-m-Y H:m:s', strtotime($d));
+              }],
+          ['db'=>'modified','dt'=>4,
+              'formatter' => function( $d, $row ) 
+              {
+                return date( 'd-m-Y H:m:s', strtotime($d));
+              }],
+          ['db'=>'flag','dt'=>5],
+          ['db'=>'id','dt'=>6]
+        ];
         $limit = array();
         //pr($this->request->query);
         $request = $this->request->query;
@@ -115,10 +70,7 @@ class BlogPostsController extends AppController
         
         $recordsFiltered = $this->BlogPosts->find()->where($where)->count();
         $recordsTotal = $this->BlogPosts->find()->count();    
-        $draw1 = isset ( $request['draw'] ) ?
-                intval( $request['draw'] ) :
-                0;
-
+        $draw1 = isset ( $request['draw'] ) ?   intval( $request['draw'] ) : 0;
         $draw2 = $recordsTotal;
         $draw3 = $recordsFiltered;     
         $posts = $this->DataTable->data_output( $columns, $blogPosts->toArray() );

@@ -35,13 +35,19 @@ class ArticlesController extends AppController
     public function indexAjax()
     {
         $this->autoRender = false;
-        $columns = array(
-          array('db'=>'id','dt'=>0),
-          array('db'=>'title','dt'=>1),        
-          array('db'=>'created','dt'=>2),
-          array('db'=>'modified','dt'=>3),
-          array('db'=>'id','dt'=>4)          
-        );
+        $columns = [
+          ['db'=>'id','dt'=>0],
+          ['db'=>'title','dt'=>1],
+          ['db'=>'created','dt'=>'2',
+              'formatter' => function( $d, $row ) 
+              {
+                return date( 'd-m-Y H:m:s', strtotime($d));
+              }
+          ],
+          ['db'=>'modified','dt'=>3,'formatter' => function( $d, $row ) {
+            return date( 'd-m-Y H:m:s', strtotime($d));}],
+          ['db'=>'id','dt'=>4]    
+        ];
         $limit = array();
         //pr($this->request->query);
         $request = $this->request->query;
@@ -56,7 +62,7 @@ class ArticlesController extends AppController
         ->limit(@$limit[1])
         ->offset(@$limit[0])
         ;
-        
+        //pr($Articles->toArray());
         $recordsFiltered = $this->Articles->find()->where($where)->count();
         $recordsTotal = $this->Articles->find()->count();    
         $draw1 = isset ( $request['draw'] ) ?

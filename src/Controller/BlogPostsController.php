@@ -24,7 +24,7 @@ class BlogPostsController extends AppController
      public function initialize()
     {
         parent::initialize();
-        // $this->viewBuilder()->Layout('layoutSecond');
+        $this->viewBuilder()->theme('Theme1');
     }
     public function index()
     {
