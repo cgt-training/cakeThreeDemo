@@ -2,7 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-
+use Cake\Event\Event;
 /**
  * BlogPosts Controller
  *
@@ -22,12 +22,21 @@ class BlogPostsController extends AppController
       
      ];
      public function initialize()
+    {      
+        
+         parent::initialize();
+         $this->viewBuilder()->layout('layoutFirst1');
+    }
+    public function beforeFilter(Event $event)
     {
-        parent::initialize();
-        $this->viewBuilder()->theme('Theme1');
+         parent::beforeFilter($event);
+       // $this->viewBuilder()->theme('Theme1');
+      // $this->viewBuilder()->layout('layoutFirst1');
     }
     public function index()
     {
+        
+       // $this->viewBuilder()->layout('layoutFirst1');
         $blogPosts = $this->paginate($this->BlogPosts);
 
         $this->set(compact('blogPosts'));

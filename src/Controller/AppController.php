@@ -107,6 +107,18 @@ class AppController extends Controller
             ]);
 
         }
+        $this->viewBuilder()->theme('Theme1');
+        $Settings = TableRegistry::get('Settings')->find()->first();
+     //pr($Settings);
+      $DefaultLang = $Settings['language'];
+      if(!empty($Settings['layout_name'])){
+            $DefaultLayout = $Settings['layout_name'];
+      }
+    else {
+        $DefaultLayout = "layoutFirst";
+      }
+      I18n::locale($DefaultLang);
+        $this->viewBuilder()->Layout($DefaultLayout);
     }
 
     /**
@@ -144,16 +156,7 @@ class AppController extends Controller
     }
     public function beforeFilter(Event $event)
     {
-      $Settings = TableRegistry::get('Settings')->find()->first();
-     //pr($Settings);
-      $DefaultLang = $Settings['language'];
-      if(!empty($Settings['layout_name'])){
-            $DefaultLayout = $Settings['layout_name'];
-      }
-    else {
-        $DefaultLayout = "layoutFirst";
-      }
-      I18n::locale($DefaultLang);
+      
       if(isset($this->request->prefix) && ($this->request->prefix == 'admin')){
        // echo "hello";exit;
           if($this->request->isAjax()) {
@@ -178,7 +181,7 @@ class AppController extends Controller
             $this->Auth->allow(['index','view']);
 
           }
-            $this->viewBuilder()->Layout($DefaultLayout);
+            //$this->viewBuilder()->Layout($DefaultLayout);
            // $this->Auth->deny(); 
          }  
           $this->set('PostsCount', TableRegistry::get('BlogPosts')->find('all')->count());   
@@ -191,7 +194,7 @@ class AppController extends Controller
 
     public function beforeRender(Event $event)
     {
-       
+        //$this->viewBuilder()->Layout("layoutSecond");
         if (!array_key_exists('_serialize', $this->viewVars) &&
             in_array($this->response->type(), ['application/json', 'application/xml'])
         ) {

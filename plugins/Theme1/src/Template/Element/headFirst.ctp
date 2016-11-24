@@ -17,3 +17,9 @@
     echo $this->Html->script('frontbootstrap.min.js');
 
 ?>
+<style type="text/css">
+    *
+    {
+        color:#F00;
+    }
+</style>
